@@ -1,5 +1,9 @@
 # Projeto-de-Engenharia-de-Software
 
+Ideia inicial:
+Aplicativo de visualização por mapa de problemas ambientais. 
+
+
 - Que big idea você propõe para o projeto?
 
 
