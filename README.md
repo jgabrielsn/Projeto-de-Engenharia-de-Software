@@ -3,7 +3,7 @@
 **Grupo: Caio Buarque de Gusmão, Diego Henrique Vilaça Calixto, José Gabriel de Santos Nascimento e Júlia Arnaud de Melo Fragoso**
 
 
-- Que big idea você propõe para o projeto?
+- <h1>Que big idea você propõe para o projeto?<h1>
 
   Finanças pessoais
 ----------------------------------------------------------------------------------------------------------------------------------
