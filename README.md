@@ -5,22 +5,22 @@
 
 - Que big idea você propõe para o projeto?
 
-  Meio ambiente
+  Finanças pessoais
 ----------------------------------------------------------------------------------------------------------------------------------
 - Que questão essencial você propõe para o projeto?
 
-  Tem uma forma de visualizar problemas no meio ambiente de um jeito fácil?
+  Tem uma forma de organizar as finanças de forma simples e intuitiva? 
 ----------------------------------------------------------------------------------------------------------------------------------
 - Como você transforma a essential question e a big idea em um desafio similar a uma chamada para a ação?
 
-  Tornar facilmente acessíveis informações sobre problemas ambientais a população.
+  Criar uma interface amigável à todos os públicos com intuito de organizar as finanças
 ----------------------------------------------------------------------------------------------------------------------------------
 - Que questões norteadoras você propõe para explorar e aprender mais sobre o desafio?
 
-  Onde essas informações são encontradas?
-  
-  Como tornar a visualização delas dinâmica?
-  
-  Como conscientizar as pessoas com essas informações?
-  
-  Como incentivar o acesso a essas informações?
+  Quais conhecimentos econômicos serão necessários?
+
+  Como atender as necessidades de cada tipo de usuário?
+
+  Como gerenciar um banco de dados com informações confidenciais?
+
+  Como tornar a interface amigável?
