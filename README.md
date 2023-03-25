@@ -46,14 +46,14 @@
 ### Analysis
 
 - Quais os fundamentos que você aprendeu que nortearão as hipóteses de solução?
-    -Engenharia de requisitos, testes, arquitetura de software e design de interfaces.
+  -Engenharia de requisitos, testes, arquitetura de software e design de interfaces.
 
 ### Solutions
 
 - Que solução você sugere para ser desenvolvida?
-    - Uma aplicação capaz de auxíliar o controle de entradas e saídas de dinheiro, gerenciando gastos e contas. Tudo isso, com uma interface amigável e intuitiva, com gráficos e integrações com outros serviços. Além de conter informações educacionais, com dicas financeiras.
+  -Uma aplicação capaz de auxíliar o controle de entradas e saídas de dinheiro, gerenciando gastos e contas. Tudo isso, com uma interface amigável e intuitiva, com gráficos e integrações com outros serviços. Além de conter informações educacionais, com dicas financeiras.
 
 ### Implementations
 
 - Como você testará a solução no mundo real?
-    -Fazendo um plano de implantação para atrair usuários, e aplicar testes de validação no decorrer da implantação. Além disso, fazer testes de usabilidade com os membros da equipe, se colocando no papel de usuário. → validação
+  -Fazendo um plano de implantação para atrair usuários, e aplicar testes de validação no decorrer da implantação. Além disso, fazer testes de usabilidade com os membros da equipe, se colocando no papel de usuário. → validação
