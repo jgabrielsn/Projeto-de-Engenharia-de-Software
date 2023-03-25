@@ -28,7 +28,7 @@
 
 ## CBL
 
-#### Guiding Questions
+### Guiding Questions
 
 - Quais atividades e recursos norteadores você sugere para responder às questões norteadoras?
     - Quais conhecimentos econômicos serão necessários?
@@ -43,19 +43,19 @@
         -Utilizando estratégias para aplicar uma navegação intuitiva, cores que trasmitam as mensagens adequadas e forneçam um visual agradavel, além de garantir uma integridade conceitual
             - gráficos e tabelas para fornecer informações
 
-#### Analysis
+### Analysis
 
 - Quais os fundamentos que você aprendeu que nortearão as hipóteses de solução?
 
 Engenharia de requisitos, testes, arquitetura de software e design de interfaces.
 
-#### Solutions
+### Solutions
 
 - Que solução você sugere para ser desenvolvida?
 
 Uma aplicação capaz de auxíliar o controle de entradas e saídas de dinheiro, gerenciando gastos e contas. Tudo isso, com uma interface amigável e intuitiva, com gráficos e integrações com outros serviços. Além de conter informações educacionais, com dicas financeiras.
 
-#### Implementations
+### Implementations
 
 - Como você testará a solução no mundo real?
 
