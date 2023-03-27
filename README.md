@@ -2,6 +2,7 @@
 
 **Grupo: Caio Buarque de Gusmão, Diego Henrique Vilaça Calixto, José Gabriel de Santos Nascimento e Júlia Arnaud de Melo Fragoso**
 
+## CBL
 
 - Que big idea você propõe para o projeto?
 
@@ -21,12 +22,10 @@
 
   Como atender as necessidades de cada tipo de usuário?
 
-  Como gerenciar um banco de dados com informações confidenciais?
+  Como garantir a segurança do aplicativo?
 
   Como tornar a interface amigável?
 
-
-## CBL
 
 ### Guiding Questions
 
@@ -36,7 +35,7 @@
             - ex: Porcentagem de economia baseada no salário
     - Como atender as necessidades de cada tipo de usuário?
         -Se colocar no lugar do usuário para compreender as suas necessidades e realizar  Testes A/B para validá-las.
-    - Como gerenciar um banco de dados com informações confidenciais?
+    - Como garantir a segurança do aplicativo?
         -Com criptografia de ponta a ponta para a proteção de dados, limitando o acesso do banco de dados à usuários específicos e um plano de backup para recuperação de informações confidenciais em caso de falhas
         
     - Como tornar a interface amigável?
