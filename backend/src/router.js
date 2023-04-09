@@ -7,6 +7,8 @@ const userMiddleware = require('./middlewares/userMiddlewares');
 //homepage
 router.get('/', (req, res) => res.status(200).send('Hello, world!'));
 
+router.get('/teste', (req, res) => res.status(200).send('Oi, estou testando!'));
+
 // lista todos os usuários
 router.get('/users', usersController.getAll);
 
