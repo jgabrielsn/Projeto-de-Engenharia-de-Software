@@ -1,9 +1,11 @@
 const express = require('express');
-const router = require('./router');
+const routerContas = require('./routers/routerContas');
+const routergastos = require('./routers/routerGastos');
 
 const app = express();
 
 app.use(express.json());
-app.use(router);
+app.use(routerContas);
+app.use(routergastos);
  
 module.exports = app;
