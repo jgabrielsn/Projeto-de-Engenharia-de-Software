@@ -55,18 +55,20 @@
             border-radius: 10px;
             width: 100%;
         }
-        button{
+        .button{
+            text-decoration: none;
+            text-align: center;
             background-color: #3C362A;
             border: none;
             padding: 15px;
-            width: 110%;
+            width: 100%;
             border-radius: 10px;
             font-size: 15px;
             color: white;
             text-transform: uppercase;
             font-weight: bold;
         }
-        button:hover{
+        .button:hover{
             background-color: #32240a ;
             cursor: pointer;
         }
@@ -77,7 +79,7 @@
 </head>
 <body>
     <div class="nome-app">
-        <h1>Buddiget</h1>
+        <h1>Budget</h1>
     </div>
     <section>
         <div class="tela-cadastro">
@@ -88,9 +90,9 @@
             <br><br>
             <input type="password" placeholder="Senha" class="senha">
             <br><br>
-            <button>Cadastre-se</button>
+            <a class="button" href="home.html"> cadastre-se </a>
             <br>
-            <p><a href="#">Já possui uma conta?</a></p>
+            <p><a href="tela-login.html">Já possui uma conta?</a></p>
         </div>
     </section>    
 </body>
