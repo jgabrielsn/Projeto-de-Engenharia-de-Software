@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
         body{
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: "Poppins", sans-serif;
             background-color: #5FD38F;
         }
         .nome-app{
@@ -25,7 +26,7 @@
             align-items: center;
             background-color: white;
             position: absolute;
-            top: 50%;
+            top: 55%;
             left: 50%;
             transform: translate(-50%,-50%);
             padding: 100px;
@@ -46,18 +47,20 @@
             border-radius: 10px;
             width: 100%;
         }
-        button{
+        .button{
+            text-decoration: none;
             background-color: #3C362A;
+            text-align: center;
             border: none;
             padding: 15px;
-            width: 110%;
+            width: 100%;
             border-radius: 10px;
             font-size: 15px;
             color: white;
             text-transform: uppercase;
             font-weight: bold;
         }
-        button:hover{
+        .button:hover{
             background-color: #32240a ;
             cursor: pointer;
         }
@@ -68,7 +71,7 @@
 </head>
 <body>
     <div class="nome-app">
-        <h1>Buddiget</h1>
+        <h1>Budget</h1>
     </div>
     <section>
         <div class="tela-login">
@@ -77,10 +80,10 @@
             <br><br>
             <input type="password" placeholder="Senha" class="senha">
             <br><br>
-            <button>Login</button>
+            <a class="button" href="home.html"> Login </a>
             <br>
-            <p><a href="#">Esqueceu a senha?</a></p>
-            <p><a href="#">Criar nova conta</a></p>
+            <p><a href="#" style="color: #040404">Esqueceu a senha?</a></p>
+            <p><a href="tela-cadastro.html" style="color: #050505">Criar nova conta</a></p>
         </div>
     </section>    
 </body>
