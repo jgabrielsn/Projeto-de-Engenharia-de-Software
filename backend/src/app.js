@@ -1,24 +1,15 @@
 const express = require('express');
-const router = require('./router');
-const session = require('express-session');
-const sessionStore = require('./models/session');
+const passport = require('passport');
 
 const app = express();
 
+require('./passportConfig')(passport);
+
+app.use(passport.initialize());
+
 app.use(express.json());
 
-app.use(session({
-    key: 'session_cookie_name',
-    secret: 'session_cookie_secret',
-    store: sessionStore,
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-        maxAge: 1000 * 60 * 60 * 24
-    }
-}));
-
-
-app.use(router);
+app.use(require('./routes/index'));
+app.use(require('./routes/userRouter'));
  
 module.exports = app;
