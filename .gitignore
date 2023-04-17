@@ -1,3 +1,4 @@
 backend/node_modules
 backend/.env
-*.pem
+backend/src/id_rsa_priv.pem
+backend/src/id_rsa_pub.pem
