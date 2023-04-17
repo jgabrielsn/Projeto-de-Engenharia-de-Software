@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    
+    />
+    <style>
+      /* Google Fonts - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  min-height: 100%;
+  background: #fafbfb;
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 70px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: #5FD38F;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+}
+nav .logo {
+  display: flex;
+  align-items: center;
+  margin: 0 24px;
+}
+.logo .menu-icon {
+  color: #060000;
+  font-size: 24px;
+  margin-right: 14px;
+  cursor: pointer;
+}
+.logo .logo-name {
+  color: #030000;
+  font-size: 22px;
+  font-weight: 500;
+}
+nav .sidebar {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  height: 100%;
+  width: 260px;
+  padding: 20px 0;
+  background-color: #5FD38F;
+  box-shadow: 0 5px 1px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+}
+nav.open .sidebar {
+  left: 0;
+}
+.sidebar .sidebar-content {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px 16px;
+}
+.sidebar-content .list {
+  list-style: none;
+}
+.list .nav-link {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+  padding: 14px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.lists .nav-link:hover {
+  background-color: hsl(145, 97%, 13%);
+}
+.nav-link .icon {
+  margin-right: 14px;
+  font-size: 20px;
+  color: #020202;
+}
+.nav-link .link {
+  font-size: 16px;
+  color: #050505;
+  font-weight: 400;
+}
+.lists .nav-link:hover .icon,
+.lists .nav-link:hover .link {
+  color: #fff;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  height: 1000vh;
+  width: 200%;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+}
+nav.open ~ .overlay {
+  opacity: 1;
+  left: 260px;
+  pointer-events: auto;
+}
+
+.saldo{
+    width: 250px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:#5FD38F ;
+    position: absolute;
+    top: 15%;
+    left: 19.7%;
+    padding: 30px;
+    border-radius: 15px;
+    color: #030303;
+}
+
+.adicionar-saldo{
+    text-decoration: none;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:#5FD38F ;
+    position: absolute;
+    top: 15%;
+    left: 34%;
+    padding: 30px;
+    border-radius: 15px;
+    color: #030303;
+}
+
+    </style>
+  </head>
+  <body>
+    
+    <nav>
+      <div class="logo">
+        <i class="bx bx-menu menu-icon"></i>
+        <span class="logo-name">Budget</span>
+      </div>
+      <div class="sidebar">
+        <div class="logo">
+          <i class="bx bx-menu menu-icon"></i>
+          <span class="logo-name">Budget</span>
+        </div>
+
+        <div class="sidebar-content">
+          <ul class="lists">
+            <li class="list">
+              <a href="home.html" class="nav-link">
+                <i class="bx bx-home-alt icon"></i>
+                <span class="link">Dashboard</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="#" class="nav-link">
+                <i class="bx bx-bar-chart-alt-2 icon"></i>
+                <span class="link">Gerenciar Gastos</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="minhas-contas.html" class="nav-link">
+                <i class="bx bx-bar-chart-alt-2 icon"></i>
+                <span class="link">Gerenciar contas</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="dicas-financeiras.html" class="nav-link">
+                <i class="bx bx-message-rounded icon"></i>
+                <span class="link">Dicas financeiras</span>
+              </a>
+            </li>
+            <!--<li class="list">
+              <a href="#" class="nav-link">
+                <i class="bx bx-pie-chart-alt-2 icon"></i>
+                <span class="link">Análises</span>
+              </a>
+            </li>-->
+          </ul>
+
+          <div class="bottom-cotent">
+            <li class="list">
+              <a href="#" class="nav-link">
+                <i class="bx bx-cog icon"></i>
+                <span class="link"> Perfil</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="welcome.html" class="nav-link">
+                <i class="bx bx-log-out icon"></i>
+                <span class="link">Sair</span>
+              </a>
+            </li>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="overlay"></section>
+
+    <script>
+      const navBar = document.querySelector("nav"),
+        menuBtns = document.querySelectorAll(".menu-icon"),
+        overlay = document.querySelector(".overlay");
+
+      menuBtns.forEach((menuBtn) => {
+        menuBtn.addEventListener("click", () => {
+          navBar.classList.toggle("open");
+        });
+      });
+
+      overlay.addEventListener("click", () => {
+        navBar.classList.remove("open");
+      });
+    </script>
+    
+    <div id="curve_chart" style="width: 800px; height: 500px; transform: translate(33%,50%);"></div>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Nome', 'valor'],
+          ['xx',  54.3],
+          ['xa',  97.2],
+          ['xs',  127],
+          ['xy',  143.39]
+        ]);
+
+        var options = {
+          title: 'Gastos',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+      <div id="piechart" style="width: 500px; height: 500px; transform: translate(230%,-50%);"></div>
+     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+     <script type="text/javascript">
+       google.charts.load('current', {'packages':['corechart']});
+       google.charts.setOnLoadCallback(drawChart);
+ 
+       function drawChart() {
+ 
+         var data = google.visualization.arrayToDataTable([
+           ['Tipo', 'valor'],
+           ['Transporte',     500],
+           ['Alimentação',      1500],
+           ['Lazer',  500],
+           ['Contas', 2000]
+         ]);
+ 
+         var options = {
+           title: 'Divisão dos gastos'
+         };
+ 
+         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+ 
+         chart.draw(data, options);
+       }
+     </script>
+      
+      
+      <a class="adicionar-saldo" href="add-saldo.html"><h1> +</h1> </a>
+
+     <div class="saldo">
+      saldo em reais:
+      <h2>Saldo total</h2>
+      </div>
+      
+
+  </body>
+</html>
