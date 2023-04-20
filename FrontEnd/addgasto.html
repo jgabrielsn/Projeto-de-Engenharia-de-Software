@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Gasto</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+        body{
+            font-family: "Poppins", sans-serif;
+            background-color: #F7F3F3;
+        }
+
+        .block {
+            width: 620px;
+            height: 550px;
+            background-color: #5FD38F;
+            margin-left: 400px;
+            margin-top:-540px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0px 0px 15px  rgba(0, 0, 0, 0.3);
+            padding: 10px;
+        }
+
+        .header {
+            margin-left: 470px;
+            margin-top: 100px
+        }
+
+        .btn-end {
+            margin-top: 60px;
+            margin-left: 580px;
+            background-color: #3c362a;
+            border: none;
+            border-radius: 20px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
+            padding: 10px 70px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h3 style="font-size: 20px;">Insira o tipo de gasto.</h3>
+        <input style="width: 490px; height:35px; font-size: 23px;" type="text" placeholder="&nbsp;...">
+        <h3 style="font-size: 20px;">Insira o valor.</h3>
+        <input style="width: 490px; height:35px; font-size: 23px;" type="number" placeholder="&nbsp;...">
+        <h3 style="font-size: 20px;">Insira a categoria do gasto.</h3>
+        <form action="">
+                <select name="Selecione..." id="iest" style="font-size: 23px; width: 490px;height: 35px;">
+                    <option value="" selected>
+                        Selecione...
+                    </option>
+                    <option value="op1">Opção 2</option>
+                    <option value="op2">Opção 3</option>
+                    <option value="op3">Opção 4</option>
+                    <option value="op4">Opção 5</option>
+                </select>
+        <h3 style="font-size: 20px;">Insira a data do gasto.</h3>
+        <input style="width: 490px; height:35px; font-size: 23px;" type="date" placeholder="">
+        </form>
+        </div>
+
+        <a href="gastocriado.html"><input type="submit" value="CRIAR NOVO GASTO" class="btn-end"></a>
+
+        <div class="block"></div>
+</body>
+</html>
