@@ -1,7 +1,8 @@
 const express = require('express');
-const passport = require('passport');
 
 const app = express();
+
+const passport = require('passport');
 
 require('./passportConfig')(passport);
 
@@ -9,7 +10,8 @@ app.use(passport.initialize());
 
 app.use(express.json());
 
-app.use(require('./routes/index'));
-app.use(require('./routes/userRouter'));
+app.use(require('./routers/routerUsers'));
+app.use(require('./routers/routerContas'));
+app.use(require('./routers/routerGastos'));
  
 module.exports = app;
