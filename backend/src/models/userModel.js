@@ -6,7 +6,7 @@ const getAll = async () => {
     return users;
 };
 
-const getUser = async (Email) => {
+const getUserByEmail = async (Email) => {
     const query = 'SELECT * FROM users WHERE Email = ?';	
     const [user] = await connection.execute(query, [Email]);
     return user[0];
@@ -22,11 +22,9 @@ const createUser = async (user) => {
     
     const { UserName,  Email} = user;
     
-    const query = 'INSERT INTO users(UserName, created_at, Password, PasswordSalt, Email) VALUES (?, ?, ?, ?, ?)';
-
-    const dateUTC = new Date(Date.now()).toUTCString();
+    const query = 'INSERT INTO users(Email, UserName, Password, PasswordSalt) VALUES (?, ?, ?, ?)';
     
-    const [createdUser] = await connection.execute(query, [UserName, dateUTC, Password, PasswordSalt, Email]);
+    const [createdUser] = await connection.execute(query, [ Email, UserName, Password, PasswordSalt]);
     
     const id = createdUser.insertId;
 
@@ -53,7 +51,7 @@ const updateUser = async (id, user) => {
 
 module.exports = {
     getAll,
-    getUser,
+    getUserByEmail,
     createUser,
     deleteUser,
     updateUser
