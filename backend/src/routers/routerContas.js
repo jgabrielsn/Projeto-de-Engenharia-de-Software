@@ -17,8 +17,11 @@ router.delete('/contas/:codigo', contaController.deleteConta);
 //atualizar conta
 router.put('/contas/:codigo', contasMiddleware.validateBody, contaController.updateConta);
 
-//lista conta por id usuário
-router.get('/contas/:id', contaController.getContaByID);
+//lista todas as contas por id usuário
+router.get('/users/contas/:id', contaController.getAllContasByID);
+
+//lista conta por código
+router.get('/contas/:codigo', contaController.getContaByCodigo);
 
 
 

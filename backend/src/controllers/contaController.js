@@ -24,9 +24,15 @@ const updateConta = async (request, response) => {
 
 };
 
-const getContaByID = async (request, response) => {
+const getAllContasByID = async (request, response) => {
     const { id } = request.params;
-    const conta = await contaModel.getContaByID(id);
+    const conta = await contaModel.getAllContasByID(id);
+    return response.status(200).json(conta);
+};
+
+const getContaByCodigo = async (request, response) => {
+    const { codigo } = request.params;
+    const conta = await contaModel.getContaByCodigo(codigo);
     return response.status(200).json(conta);
 };
 
@@ -35,5 +41,6 @@ module.exports = {
     createConta,
     deleteConta,
     updateConta,
-    getContaByID
+    getAllContasByID,
+    getContaByCodigo
 };

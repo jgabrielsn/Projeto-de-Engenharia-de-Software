@@ -28,9 +28,15 @@ const updateConta = async (codigo, conta) => {
     const [updatedConta] = await connection.execute(query, [contaNome, valor, vencimento, status, codigo]);
     return updatedConta;
 };
-const getContaByID = async (id) => {
+const getAllContasByID = async (id) => {
     const query = 'SELECT * FROM contas WHERE UserID = ?';
     const [conta] = await connection.execute(query, [id]);
+    return conta;
+};
+
+const getContaByCodigo = async (codigo) => {
+    const query = 'SELECT * FROM contas WHERE codigo = ?';
+    const [conta] = await connection.execute(query, [codigo]);
     return conta;
 };
 
@@ -39,5 +45,6 @@ module.exports = {
     createConta,
     deleteConta,
     updateConta,
-    getContaByID
+    getAllContasByID,
+    getContaByCodigo
 };
