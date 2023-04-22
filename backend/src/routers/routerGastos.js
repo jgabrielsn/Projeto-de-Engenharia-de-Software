@@ -16,4 +16,10 @@ router.delete('/gastos/:codigo', gastoController.deleteGasto);
 //atualizar gasto
 router.put('/gastos/:codigo', gastosMiddleware.validateBody, gastoController.updateGasto);
 
+//lista gastos por id
+router.get('/users/gastos/:id', gastoController.getAllGastosByID);
+
+//pegar gasto por codigo
+router.get('/gastos/:codigo', gastoController.getGastoByCodigo);
+
 module.exports = router;

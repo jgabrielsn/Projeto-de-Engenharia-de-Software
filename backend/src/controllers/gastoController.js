@@ -24,9 +24,23 @@ const updateGasto = async (request, response) => {
 
 };
 
+const getAllGastosByID = async (request, response) => {
+    const { id } = request.params;
+    const gasto = await gastoModel.getAllGastosByID(id);
+    return response.status(200).json(gasto);
+};
+
+const getGastoByCodigo = async (request, response) => {
+    const { codigo } = request.params;
+    const gasto = await gastoModel.getGastoByCodigo(codigo);
+    return response.status(200).json(gasto);
+};
+
 module.exports = {
     getAll,
     createGasto,
     deleteGasto,
-    updateGasto
+    updateGasto,
+    getAllGastosByID,
+    getGastoByCodigo
 };

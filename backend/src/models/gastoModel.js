@@ -30,9 +30,23 @@ const updateGasto = async (codigo, gasto) => {
     return updatedGasto;
 };
 
+const getAllGastosByID = async (id) => {
+    const query = 'SELECT * FROM gastos WHERE UserID = ?';
+    const [gasto] = await connection.execute(query, [id]);
+    return gasto;
+};
+
+const getGastoByCodigo = async (codigo) => {
+    const query = 'SELECT * FROM gastos WHERE codigo = ?';
+    const [gasto] = await connection.execute(query, [codigo]);
+    return gasto;
+};
+
 module.exports = {
     getAll,
     createGasto,
     deleteGasto,
-    updateGasto
+    updateGasto,
+    getAllGastosByID,
+    getGastoByCodigo
 };
