@@ -49,10 +49,26 @@ const updateUser = async (id, user) => {
     return updatedUser;
 };
 
+const updateSaldo = async (id, body) => {
+    const { Saldo } = body;
+    const query = 'UPDATE users SET Saldo = ? WHERE UserID = ?';
+    const [updatedSaldo] = await connection.execute(query, [Saldo, id]);
+    return updatedSaldo;
+};
+
+const updateFormulario = async (id, formulario) => {
+    const { Salario, Objetivo } = formulario;
+    const query = 'UPDATE users SET Salario = ?, Objetivo = ? WHERE UserID = ?';
+    const [updatedFormulario] = await connection.execute(query, [Salario, Objetivo, id]);
+    return updatedFormulario;
+};
+
 module.exports = {
     getAll,
     getUserByEmail,
     createUser,
     deleteUser,
-    updateUser
+    updateUser,
+    updateSaldo,
+    updateFormulario
 };

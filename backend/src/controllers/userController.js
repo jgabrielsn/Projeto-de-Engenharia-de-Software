@@ -62,11 +62,25 @@ const register = async (request, response) => {
     }
 };
 
+const updateSaldo = async (request, response) => {
+    const { id } = request.params;
+    await userModel.updateSaldo(id, request.body);
+    return response.status(204).json();
+};
+
+const updateFormulario = async (request, response) => {
+    const { id } = request.params;
+    await userModel.updateFormulario(id, request.body);
+    return response.status(204).json();
+};
+
 module.exports = {
     getAll,
     getUserByEmail,
     deleteUser,
     updateUser,
     login,
-    register
+    register,
+    updateSaldo,
+    updateFormulario
 };

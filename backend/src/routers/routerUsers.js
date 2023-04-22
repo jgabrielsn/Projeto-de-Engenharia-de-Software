@@ -31,6 +31,10 @@ router.put('/users/:id', userMiddleware.validateBody, usersController.updateUser
 
 router.get('/users/:email', usersController.getUserByEmail);
 
+router.post('/users/saldo/:id', usersController.updateSaldo);
+
+router.post('/users/formulario/:id', usersController.updateFormulario);
+
 
 
 

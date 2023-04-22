@@ -24,9 +24,16 @@ const updateConta = async (request, response) => {
 
 };
 
+const getContaByID = async (request, response) => {
+    const { id } = request.params;
+    const conta = await contaModel.getContaByID(id);
+    return response.status(200).json(conta);
+};
+
 module.exports = {
     getAll,
     createConta,
     deleteConta,
-    updateConta
+    updateConta,
+    getContaByID
 };

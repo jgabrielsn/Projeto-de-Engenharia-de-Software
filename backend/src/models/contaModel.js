@@ -6,13 +6,10 @@ const getAll = async () => {
 };
 
 const createConta = async (conta) => {
-    const { contaNome, valor, vencimento, status } = conta;
+    const { contaNome, valor, vencimento, status, UserID } = conta;
 
-    const query = 'INSERT INTO contas(createTime, contaNome, valor, vencimento, status) VALUES (?, ?, ?, ?, ?)';
-
-    const dateUTC = new Date(Date.now()).toUTCString();
-    
-    const [createdConta] = await connection.execute(query, [dateUTC, contaNome, valor, vencimento, status]);
+    const query = 'INSERT INTO contas( contaNome, valor, vencimento, status, UserID) VALUES (?, ?, ?, ?, ?)';
+    const [createdConta] = await connection.execute(query, [ contaNome, valor, vencimento, status, UserID]);
     return {insertId : createdConta.insertId};
 };
 
@@ -31,10 +28,16 @@ const updateConta = async (codigo, conta) => {
     const [updatedConta] = await connection.execute(query, [contaNome, valor, vencimento, status, codigo]);
     return updatedConta;
 };
+const getContaByID = async (id) => {
+    const query = 'SELECT * FROM contas WHERE UserID = ?';
+    const [conta] = await connection.execute(query, [id]);
+    return conta;
+};
 
 module.exports = {
     getAll,
     createConta,
     deleteConta,
-    updateConta
+    updateConta,
+    getContaByID
 };

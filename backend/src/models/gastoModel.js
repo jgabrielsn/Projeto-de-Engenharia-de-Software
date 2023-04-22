@@ -6,13 +6,11 @@ const getAll = async () => {
 };
 
 const createGasto = async (gasto) => {
-    const { gastoNome, valor, data, categoria } = gasto;
+    const { UserID, gastoNome, valor, data, categoria } = gasto;
 
-    const query = 'INSERT INTO gastos( createTime, gastoNome, valor, data, categoria) VALUES (?, ?, ?, ?, ?)';
-
-    const dateUTC = new Date(Date.now()).toUTCString();
+    const query = 'INSERT INTO gastos( UserID, gastoNome, valor, data, categoria) VALUES (?, ?, ?, ?, ?)';
     
-    const [createdGasto] = await connection.execute(query, [ dateUTC, gastoNome, valor, data, categoria]);
+    const [createdGasto] = await connection.execute(query, [ UserID, gastoNome, valor, data, categoria]);
     return {insertId : createdGasto.insertId};
 };
 
