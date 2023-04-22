@@ -7,7 +7,13 @@ const getAll = async (_request, response) => {
 };
 
 const createConta = async (request, response) => {
-    const createdConta = await contaModel.createConta(request.body);
+    let createdConta;
+    try{
+        createdConta = await contaModel.createConta(request.body);
+    }
+    catch(err){
+        return response.status(400).json({message: err.message});
+    }
     return response.status(201).json(createdConta);
 };
 
