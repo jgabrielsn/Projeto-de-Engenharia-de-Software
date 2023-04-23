@@ -6,10 +6,10 @@ const getAll = async () => {
 };
 
 const createConta = async (conta) => {
-    const { contaNome, valor, vencimento, status, UserID } = conta;
+    const { contaNome, valor, vencimento, recorrencia, status, UserID } = conta;
 
-    const query = 'INSERT INTO contas( contaNome, valor, vencimento, status, UserID) VALUES (?, ?, ?, ?, ?)';
-    const [createdConta] = await connection.execute(query, [ contaNome, valor, vencimento, status, UserID]);
+    const query = 'INSERT INTO contas( contaNome, valor, vencimento, recorrencia, status, UserID) VALUES (?, ?, ?, ?, ?, ?)';
+    const [createdConta] = await connection.execute(query, [ contaNome, valor, vencimento, recorrencia, status, UserID]);
     return {insertId : createdConta.insertId};
 };
 

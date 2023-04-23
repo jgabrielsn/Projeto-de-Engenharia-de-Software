@@ -1,3 +1,6 @@
+const connection = require('../models/connection');
+
+
 const validateBody = (request, response, next) => {
     const { body } = request;
 
@@ -67,9 +70,32 @@ const validatePassword = (request, response, next) => {
     next();
 };
 
+const verifyID = async (request, response, next) => {
+    const { id } = request.params;
+    if (!id) {
+        return response.status(400).json({ message: 'The field "id" is required'});
+    }
+    const idInt = parseInt(id);
+    if (isNaN(idInt)) {
+        return response.status(400).json({ message: 'The field "id" must be a valid integer'});
+    }
+    const query = `SELECT * FROM users WHERE UserID = ${idInt}`;
+    connection.execute(query)
+        .then(([results]) => {
+            if (results.length == 0) {
+                return response.status(404).json({ message: 'User not found'});
+            }
+            next();
+        })
+        .catch((err) => {
+            return response.status(500).json({ message: err.message });
+        });
+};
+
 module.exports = {
     validateBody,
     validateName,
     validateEmail,
-    validatePassword
+    validatePassword,
+    verifyID
 };

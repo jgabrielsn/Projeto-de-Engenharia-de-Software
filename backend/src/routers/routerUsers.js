@@ -26,16 +26,26 @@ router.get('/users', usersController.getAll);
 //deletar usuário
 router.delete('/users/:id', usersController.deleteUser);
 
-//atualizar usuário
+//atualizar nome de usuário
 router.put('/users/:id', userMiddleware.validateBody, usersController.updateUser);
 
-router.get('/users/:email', usersController.getUserByEmail);
+//retornar usuário por email
+router.get('/users/email/:email', userMiddleware.validateEmail, usersController.getUserByEmail);
 
-router.post('/users/saldo/:id', usersController.updateSaldo);
+//retornar usuário por id
+router.get('/users/id/:id', userMiddleware.verifyID, usersController.getUserByID);
 
-router.post('/users/formulario/:id', usersController.updateFormulario);
+//atualizar saldo do usuário
+router.post('/users/saldo/:id', userMiddleware.verifyID, usersController.updateSaldo);
 
+//atualizar formulário do usuário
+router.post('/users/formulario/:id', userMiddleware.verifyID, usersController.updateFormulario);
 
+//definir meta do usuário
+router.post('/users/meta/:id', userMiddleware.verifyID, usersController.updateMeta);
+
+//atualizar senha do usuário
+router.post('/users/senha/:id', userMiddleware.verifyID, usersController.updateSenha);
 
 
 module.exports = router;

@@ -25,7 +25,4 @@ router.get('/contas/:codigo', contaController.getContaByCodigo);
 
 
 
-// lista todos as contas do usuário
-
-
 module.exports = router;

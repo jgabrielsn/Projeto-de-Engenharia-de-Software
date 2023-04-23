@@ -11,7 +11,14 @@ const createGasto = async (gasto) => {
     const query = 'INSERT INTO gastos( UserID, gastoNome, valor, data, categoria) VALUES (?, ?, ?, ?, ?)';
     
     const [createdGasto] = await connection.execute(query, [ UserID, gastoNome, valor, data, categoria]);
-    return {insertId : createdGasto.insertId};
+
+    const query2 = 'UPDATE users SET saldo = saldo - ? WHERE UserID = ?';
+    await connection.execute(query2, [valor, UserID]);
+
+    const query3 = 'SELECT saldo FROM users WHERE UserID = ?';
+    const [updatedSaldo] = await connection.execute(query3, [UserID]);
+
+    return {insertId : createdGasto.insertId, updatedSaldo : updatedSaldo[0].saldo};
 };
 
 const deleteGasto = async (codigo) => {

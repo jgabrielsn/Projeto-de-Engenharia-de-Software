@@ -63,6 +63,31 @@ const updateFormulario = async (id, formulario) => {
     return updatedFormulario;
 };
 
+const updateMeta = async (id, meta) => {
+    const { Meta } = meta;
+    const query = 'UPDATE users SET Meta = ? WHERE UserID = ?';
+    const [updatedMeta] = await connection.execute(query, [Meta, id]);
+    return updatedMeta;
+};
+
+const getUserByID = async (id) => {
+    const query = 'SELECT * FROM users WHERE UserID = ?';
+    const [user] = await connection.execute(query, [id]);
+    return user[0];
+};
+
+const updateSenha = async (id, body) => {
+
+    const saltHash = authModel.genPassword(body.Password);
+
+    const PasswordSalt = saltHash.salt;
+    const Password = saltHash.hash;
+
+    const query = 'UPDATE users SET Password = ?, PasswordSalt = ? WHERE UserID = ?';
+    const [updatedSenha] = await connection.execute(query, [Password, PasswordSalt, id]);
+    return updatedSenha;
+};
+
 module.exports = {
     getAll,
     getUserByEmail,
@@ -70,5 +95,8 @@ module.exports = {
     deleteUser,
     updateUser,
     updateSaldo,
-    updateFormulario
+    updateFormulario,
+    updateMeta,
+    getUserByID,
+    updateSenha
 };

@@ -74,6 +74,24 @@ const updateFormulario = async (request, response) => {
     return response.status(204).json();
 };
 
+const updateMeta = async (request, response) => {
+    const { id } = request.params;
+    await userModel.updateMeta(id, request.body);
+    return response.status(204).json();
+};
+
+const getUserByID = async (request, response) => {
+    const { id } = request.params;
+    const user = await userModel.getUserByID(id);
+    return response.status(200).json(user);
+};
+
+const updateSenha = async (request, response) => {
+    const { id } = request.params;
+    await userModel.updateSenha(id, request.body);
+    return response.status(204).json();
+};
+
 module.exports = {
     getAll,
     getUserByEmail,
@@ -82,5 +100,8 @@ module.exports = {
     login,
     register,
     updateSaldo,
-    updateFormulario
+    updateFormulario,
+    updateMeta,
+    getUserByID,
+    updateSenha
 };
