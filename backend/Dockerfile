@@ -10,7 +10,7 @@ COPY . .
 
 WORKDIR /app/src
 
-RUN node generateKeyPair.js
+RUN node generateKeyPairs.js
 
 EXPOSE 3000
 
