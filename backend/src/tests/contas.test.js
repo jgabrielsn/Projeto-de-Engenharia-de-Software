@@ -126,4 +126,21 @@ describe('CRUD Contas', () => {
         const response = await request('http://localhost:3000').delete('/contas/1');
         expect(response.statusCode).toBe(400);
     });
+    it ('Delete conta with no ID', async () => {
+        const response = await request('http://localhost:3000').delete('/contas');
+        expect(response.statusCode).toBe(404);
+    });
+    it ('Get conta by codigo', async () => {
+        const response = await request('http://localhost:3000').get('/contas/codigo/10');
+        expect(response.statusCode).toBe(200);
+    });
+    it ('Get conta by codigo with invalid ID', async () => {
+        const response = await request('http://localhost:3000').get('/contas/codigo/1');
+        expect(response.statusCode).toBe(400);
+    });
+    it ('Get conta by codigo with no ID', async () => {
+        const response = await request('http://localhost:3000').get('/contas/codigo');
+        expect(response.statusCode).toBe(404);
+    });
+    
 });
