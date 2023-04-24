@@ -21,18 +21,32 @@ const validateBody = (request, response, next) => {
 
 
 const validateCodigo = (request, response, next) => {
-    const { body } = request;
-    if (body.codigo == '') {
+    const codigo = request.body.codigo || request.params.codigo;
+    if (codigo == '') {
         return response.status(400).json({ message: 'O campo "codigo" é obrigatório'});
     }
-    if (body.codigo == undefined) {
+    if (codigo == undefined) {
         return response.status(400).json({ message: 'O campo "codigo" está inválido'});
-    };
-    next();
+    }
+    const idInt = parseInt(codigo);
+    if (isNaN(idInt)) {
+        return response.status(400).json({ message: 'The field "codigo" must be a valid integer'});
+    }
+    const query = `SELECT * FROM contas WHERE codigo = ${codigo}`;
+    connection.execute(query)
+        .then(([results]) => {
+            if (results.length == 0) {
+                return response.status(404).json({ message: 'Conta not found'});
+            }
+            next();
+        })
+        .catch((err) => {
+            return response.status(500).json({ message: err.message });
+        });
 };
 
 const verifyID = async (request, response, next) => {
-    const { UserID } = request.body;
+    const UserID = request.body.UserID || request.params.id;
     if (!UserID) {
         return response.status(400).json({ message: 'The field "UserID" is required'});
     }

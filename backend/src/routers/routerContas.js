@@ -3,14 +3,13 @@ const router = express.Router();
 
 const contaController = require('../controllers/contaController');
 const contasMiddleware = require('../middlewares/contasMiddlewares');
-const userMiddleware = require('../middlewares/userMiddlewares');
 
 
 // lista todas as contas 
 router.get('/contas', contaController.getAll);
 
 //insere conta
-router.post('/contas',contasMiddleware.validateBody, contaController.createConta);
+router.post('/contas', contasMiddleware.verifyID, contasMiddleware.validateBody, contaController.createConta);
 
 //deletar conta
 router.delete('/contas/:codigo', contasMiddleware.validateCodigo, contaController.deleteConta);

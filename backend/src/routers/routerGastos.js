@@ -8,7 +8,7 @@ const gastosMiddleware = require('../middlewares/gastosMiddlewares');
 router.get('/gastos', gastoController.getAll);
 
 //insere gasto
-router.post('/gastos',gastosMiddleware.validateBody, gastoController.createGasto);
+router.post('/gastos', gastosMiddleware.validateBody, gastoController.createGasto);
 
 //deletar gasto
 router.delete('/gastos/:codigo', gastoController.deleteGasto);
@@ -20,6 +20,6 @@ router.put('/gastos/:codigo', gastosMiddleware.validateBody, gastoController.upd
 router.get('/users/gastos/:id', gastoController.getAllGastosByID);
 
 //pegar gasto por codigo
-router.get('/gastos/:codigo', gastoController.getGastoByCodigo);
+router.get('/gastos/:codigo', gastosMiddleware.validateCodigo, gastoController.getGastoByCodigo);
 
 module.exports = router;
