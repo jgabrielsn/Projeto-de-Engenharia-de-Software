@@ -1,0 +1,12 @@
+version: "3"
+services:
+  server:
+    build: .
+    ports:
+      - 80:3000
+    environment:
+      - PORT=3000
+      - MYSQL_HOST=database-1.cph3keliv8la.sa-east-1.rds.amazonaws.com
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=projetoes
+      - MYSQL_DB=Budget

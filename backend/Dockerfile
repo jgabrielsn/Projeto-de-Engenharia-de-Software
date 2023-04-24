@@ -14,4 +14,4 @@ RUN node generateKeyPairs.js
 
 EXPOSE 3000
 
-CMD [ "node", "start"]
+CMD [ "npm", "start"]
