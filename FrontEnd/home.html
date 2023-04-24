@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
     <link
       href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
       rel="stylesheet"
@@ -21,7 +22,7 @@
 }
 body {
   min-height: 100%;
-  background: #fafbfb;
+  background: #ffffff;
 }
 nav {
   position: fixed;
@@ -116,6 +117,7 @@ nav.open ~ .overlay {
 }
 
 .saldo{
+  font-size: 18px;
     width: 250px;
     height: 100px;
     display: flex;
@@ -171,7 +173,7 @@ nav.open ~ .overlay {
               </a>
             </li>
             <li class="list">
-              <a href="#" class="nav-link">
+              <a href="addgasto.html" class="nav-link">
                 <i class="bx bx-bar-chart-alt-2 icon"></i>
                 <span class="link">Gerenciar Gastos</span>
               </a>
@@ -204,10 +206,16 @@ nav.open ~ .overlay {
               </a>
             </li>
             <li class="list">
-              <a href="welcome.html" class="nav-link">
+              <a href="welcome.html" class="nav-link" id="logout-link">
                 <i class="bx bx-log-out icon"></i>
                 <span class="link">Sair</span>
               </a>
+              
+              <script>
+                document.getElementById('logout-link').addEventListener('click', function() {
+                  localStorage.removeItem('usuario');
+                });
+              </script>
             </li>
           </div>
         </div>
@@ -234,18 +242,44 @@ nav.open ~ .overlay {
     
     <div id="curve_chart" style="width: 800px; height: 500px; transform: translate(33%,50%);"></div>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
+    <script type="text/javascript" src="get/get-gastosGL.js">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
+        /* let usuario = JSON.parse(localStorage.getItem("usuario"));
+            let id = usuario.user.UserID;
+            let values = fazGet("http://localhost:3000/users/contas/"+id);
+            let listValues = JSON.parse(values)
+            let list = document.getElementById('to-do-list')
+
+            list.innerHTML = ''
+            for(let i = 0; i < listValues.length; i++)
+            {
+              const date = new Date(listValues[i]["vencimento"]);
+              const dataFormatada = date.toLocaleDateString(); // ou data.toLocaleString()
+
+                list.innerHTML += `<li>
+                <div id="desc-lista">${listValues[i]["contaNome"]}</div>
+                <div id="valor-lista">R$ ${listValues[i]["valor"]}</div>
+                <div id="venc-lista">${dataFormatada}</div>
+                <button id='btn-ok' onclick='removeItem("${listValues[i]["Codigo"]}", "${listValues[i]["valor"]}" )'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/></svg></button></li>`
+        
+        
+        router.get('/gastos', gastoController.getAll);
+
+                */
+        
+        var dados = showGastos()        
         var data = google.visualization.arrayToDataTable([
-          ['Nome', 'valor'],
-          ['xx',  54.3],
-          ['xa',  97.2],
-          ['xs',  127],
-          ['xy',  143.39]
-        ]);
+        ['Nome', 'valor'],
+        ...dados.map(gasto => [gasto.gastoNome, gasto.valor])
+        ]);        
+        
+        
+        for (var i = 0; i < dados.length; i++) {
+        data.addRow([dados[i].gastoNome, dados[i].valor]);
+        }
 
         var options = {
           title: 'Gastos',
@@ -261,8 +295,8 @@ nav.open ~ .overlay {
 
       <div id="piechart" style="width: 500px; height: 500px; transform: translate(230%,-50%);"></div>
      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-     <script type="text/javascript">
-       google.charts.load('current', {'packages':['corechart']});
+     <script type="text/javascript" src="get/get-gastosGP.js">
+      google.charts.load('current', {'packages':['corechart']});
        google.charts.setOnLoadCallback(drawChart);
  
        function drawChart() {
@@ -288,10 +322,15 @@ nav.open ~ .overlay {
       
       <a class="adicionar-saldo" href="add-saldo.html"><h1> +</h1> </a>
 
-     <div class="saldo">
-      saldo em reais:
-      <h2>Saldo total</h2>
+      <div class="saldo">
+        <script src="get/get-saldo.js"></script>
+        saldo em reais:
+        <span id="saldo"></span>
+        <script>
+          document.getElementById("saldo").textContent = showSaldo();
+        </script>
       </div>
+      
       
 
   </body>
