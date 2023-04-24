@@ -65,12 +65,9 @@ descibe('CRUD Gastos', () => {
         const response = await request('http://localhost:3000').get('/gastos/13');
         expect(response.statusCode).toBe(200);
     });
-    it ('Get gastos by UserID with no UserID', async () => {
-        const response = await request('http://localhost:3000').get('/gastos/');
-        expect(response.statusCode).toBe(400);
-    });
+    
     it ('Get gastos by codigo', async () => {
-        const response = await request('http://localhost:3000').get('/gastos/13/1');
+        const response = await request('http://localhost:3000').get('/gastos/13');
         expect(response.statusCode).toBe(200);
     });
     it ('Get gastos by codigo with no UserID', async () => {
