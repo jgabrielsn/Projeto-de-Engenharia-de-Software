@@ -41,9 +41,6 @@ const validateEmail = (request, response, next) => {
     if (body.Email.indexOf('.') == -1) {
         return response.status(400).json({ message : 'The field "email" must be a valid email'});
     }
-    if (body.Email.indexOf('@') > body.Email.indexOf('.')) {
-        return response.status(400).json({ message : 'The field "email" must be a valid email'});
-    }
     if (body.Email.indexOf('@') == 0) {
         return response.status(400).json({ message : 'The field "email" must be a valid email'});
     }
