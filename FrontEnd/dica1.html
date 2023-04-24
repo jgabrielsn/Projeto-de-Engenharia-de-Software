@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dicas Financeiras</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    
+    />
+    <style>
+      /* Google Fonts - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  min-height: 100%;
+ 
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 70px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: #5FD38F;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+}
+nav .logo {
+  display: flex;
+  align-items: center;
+  margin: 0 24px;
+}
+.logo .menu-icon {
+  color: #060000;
+  font-size: 24px;
+  margin-right: 14px;
+  cursor: pointer;
+}
+.logo .logo-name {
+  color: #030000;
+  font-size: 22px;
+  font-weight: 500;
+}
+nav .sidebar {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  height: 100%;
+  width: 260px;
+  padding: 20px 0;
+  background-color: #5FD38F;
+  box-shadow: 0 5px 1px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+}
+nav.open .sidebar {
+  left: 0;
+}
+.sidebar .sidebar-content {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px 16px;
+}
+.sidebar-content .list {
+  list-style: none;
+}
+.list .nav-link {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+  padding: 14px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.lists .nav-link:hover {
+  background-color: hsl(145, 97%, 13%);
+}
+.nav-link .icon {
+  margin-right: 14px;
+  font-size: 20px;
+  color: #020202;
+}
+.nav-link .link {
+  font-size: 16px;
+  color: #050505;
+  font-weight: 400;
+}
+.lists .nav-link:hover .icon,
+.lists .nav-link:hover .link {
+  color: #fff;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  height: 1000vh;
+  width: 200%;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+}
+nav.open ~ .overlay {
+  opacity: 1;
+  left: 260px;
+  pointer-events: auto;
+}
+
+.block {
+            width: 620px;
+            height: 550px;
+            background-color: #5FD38F;
+            margin-left: 650px;
+            margin-top:-460px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0px 0px 15px  rgba(0, 0, 0, 0.3);
+            padding: 10px;
+        }
+
+        .header {
+            margin-left: 720px;
+            margin-top: 260px
+        }
+
+        button {
+            margin-top: 60px;
+            margin-left: 94px;
+            background-color: #3c362a;
+            border: none;
+            border-radius: 20px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
+            padding: 10px 70px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+
+    </style>
+  </head>
+  <body>
+    
+    <nav>
+      <div class="logo">
+        <i class="bx bx-menu menu-icon"></i>
+        <span class="logo-name">Budget</span>
+      </div>
+      <div class="sidebar">
+        <div class="logo">
+          <i class="bx bx-menu menu-icon"></i>
+          <span class="logo-name">Budget</span>
+        </div>
+
+        <div class="sidebar-content">
+          <ul class="lists">
+            <li class="list">
+              <a href="home.html" class="nav-link">
+                <i class="bx bx-home-alt icon"></i>
+                <span class="link">Dashboard</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="#" class="nav-link">
+                <i class="bx bx-bar-chart-alt-2 icon"></i>
+                <span class="link">Gerenciar Gastos</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="minhas-contas.html" class="nav-link">
+                <i class="bx bx-bar-chart-alt-2 icon"></i>
+                <span class="link">Gerenciar contas</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="dicas-financeiras.html" class="nav-link">
+                <i class="bx bx-message-rounded icon"></i>
+                <span class="link">Dicas financeiras</span>
+              </a>
+            </li>
+            <!--<li class="list">
+              <a href="#" class="nav-link">
+                <i class="bx bx-pie-chart-alt-2 icon"></i>
+                <span class="link">Análises</span>
+              </a>
+            </li>-->
+          </ul>
+
+          <div class="bottom-cotent">
+            <li class="list">
+              <a href="#" class="nav-link">
+                <i class="bx bx-cog icon"></i>
+                <span class="link"> Perfil</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="welcome.html" class="nav-link">
+                <i class="bx bx-log-out icon"></i>
+                <span class="link">Sair</span>
+              </a>
+            </li>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="overlay"></section>
+
+    <script>
+      const navBar = document.querySelector("nav"),
+        menuBtns = document.querySelectorAll(".menu-icon"),
+        overlay = document.querySelector(".overlay");
+
+      menuBtns.forEach((menuBtn) => {
+        menuBtn.addEventListener("click", () => {
+          navBar.classList.toggle("open");
+        });
+      });
+
+      overlay.addEventListener("click", () => {
+        navBar.classList.remove("open");
+      });
+    </script>
+
+<style>
+    .info {
+        font-size: 13px;
+            position: absolute;
+            top: 59%;
+            left: 50%;
+            transform: translate(-50%, -55%);
+            padding: 5px;
+            background-color: #F7F3F3;
+            border: 1px solid #ccc;
+        }
+        
+</style>
+<div class="info">
+
+    <h3>- Estabeleça metas financeiras:</h3>
+    <p style="color: #23A161; font-weight: bold">Independentemente do seu perfil financeiro, estabelecer metas financeiras é uma estratégia essencial para alcançar objetivos financeiros de longo prazo. Defina metas realistas e mensuráveis que possam ser alcançadas a curto, médio e longo prazo.
+        </p>
+    <br>
+    <h3>- Acompanhe seus gastos:</h3>
+    <p style="color: #23A161 ; font-weight: bold;">Independentemente do seu perfil financeiro, é importante acompanhar seus gastos para entender onde você está gastando seu dinheiro e identificar áreas onde você pode economizar. Verifique e analise os gráficos do Budget para monitorar os seus gastos e pois você irá conseguir identificar áreas onde você pode cortar despesas desnecessárias, ajudaremos nessa identificação ao máximo nessa identificação!.
+        </p>
+
+
+    <!-- Dicas Específicas -->
+        <br>
+    <h3>- Crie um orçamento:</h3>
+    <p style="color: #23A161; font-weight: bold">Comece por criar um orçamento realista para suas despesas. 
+        Identifique suas despesas fixas, como aluguel, serviços públicos, transporte e alimentação, e, em seguida, veja o quanto resta para outras despesas e para economizar. O orçamento pode ajudá-lo a ter uma visão clara das suas finanças e tomar decisões informadas sobre onde gastar seu dinheiro.
+        </p>
+        <br>
+        <h3>- Reduza suas despesas:</h3>
+    <p style="color: #23A161; font-weight: bold">Olhe para seus gastos e veja onde você pode reduzir ou eliminar as despesas desnecessárias. Por exemplo, cortar despesas como café na rua, restaurantes e bebidas alcoólicas, pode economizar muito dinheiro. Se você conseguir reduzir algumas despesas, pode sobrar mais dinheiro para economizar, mas lembre-se: Não deixe essas restrições lhe impedirem de se divertir quando você precisar dar uma relaxada.
+        </p>
+        <br>
+        <h3>- Automatize suas economias:</h3>
+    <p style="color: #23A161; font-weight: bold">Uma das melhores maneiras de economizar dinheiro quando você tem dificuldade em guardar é automatizar suas economias. Configure uma transferência automática para uma conta de poupança assim que receber seu salário. Dessa forma, você economiza dinheiro sem nem precisar pensar sobre isso. Comece com um valor que seja confortável para você e, em seguida, tente aumentar gradualmente suas economias ao longo do tempo, comece guardando 10% do que você recebe, se achar que está difícil reduza para 8% ou até 5%, se achar que consegue guardar mais aumente para 15%, assim você terá uma reserva baseada em sua percepção.
+        </p>
+
+</div>
+
+ <section>
+
+
+  </body>
+</html>
