@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gasto Criado</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+        
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: #F7F3F3;
+        }
+        .block {
+            width: 600px;
+            height: 200px;
+            background-color: #F7F3F3;
+            margin-left: 640px;
+            margin-top:-190px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0px 0px 15px  rgba(0, 0, 0, 0.3);
+            padding: 10px;
+        }
+        .msg {
+            text-align: center;
+            margin-top: 250px;
+            font-size: 23px ;
+        }
+
+        .OK{
+            margin-left: 900px;
+            background-color: #5FD38F;
+            border: none;
+            border-radius: 20px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 50px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .OK:hover {
+            background-color: #48B777;
+        }
+
+
+
+        
+
+
+    </style>
+</head>
+<body>
+    <h3 class="msg">Seu gasto foi registrado! Lembre de sempre fazer<br> um bom uso do seu dinheiro</h3>
+    <button class="OK" onclick="redirecionar()">OK</button>
+
+<script>
+    function redirecionar() {
+        window.location.href = "home.html";
+    }
+</script>
+    <div class="block"></div>
+    
+
+    
+</body>
+</html>

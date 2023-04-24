@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adicionar saldo</title>
     <link
       href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
       rel="stylesheet"
@@ -244,11 +245,13 @@ nav.open ~ .overlay {
     </script>
   
     <div class="add-saldo">
+      <script src="post/post-saldo.js"></script>
+
       <h2>Informe o valor que deseja adicionar</h2>
       <br><br>
-      <input type="number" placeholder="valor" class="valor">
+      <input type="number" placeholder="valor" id="valor" class="valor">
             <br><br>
-      <button class="button">ADICIONAR</button>
+      <button class="button" onclick="updateSaldo()">ADICIONAR</button>
           </div>
 
   </body>

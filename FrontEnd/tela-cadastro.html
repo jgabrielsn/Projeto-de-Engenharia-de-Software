@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
     <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
         body{
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: "Poppins", sans-serif;
             background-color: #5FD38F;
         }
         .nome-app{
@@ -18,82 +19,230 @@
             transform: translate(-50%,0);
             font-size: 20px;
         }
-        .tela-cadastro{
-            width: 300px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: white;
-            position: absolute;
-            top: 55%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            padding: 100px;
-            border-radius: 15px;
-            color: #5FD38F;
-        }
+        .centralize {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        .nome{
-            padding: 15px;
-            outline: none;
-            font-size: 15px;
-            border-radius: 10px;
-            width: 100%;
-        }
+.form{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 100px;
+    border-radius: 15px;
+    color: #000000;
+}
 
-        .email{
-            padding: 15px;
-            outline: none;
-            font-size: 15px;
-            border-radius: 10px;
-            width: 100%;
-        }
-        .senha{
-            padding: 15px;
-            outline: none;
-            font-size: 15px;
-            border-radius: 10px;
-            width: 100%;
-        }
-        .button{
-            text-decoration: none;
-            text-align: center;
-            background-color: #3C362A;
-            border: none;
-            padding: 15px;
-            width: 100%;
-            border-radius: 10px;
-            font-size: 15px;
-            color: white;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-        .button:hover{
-            background-color: #32240a ;
-            cursor: pointer;
-        }
-        .a{
-           background-color:#3C362A ; 
-        }
+        
+
+.form-field {
+    margin-bottom: 10px;
+    margin-left: -30px;
+}
+
+input,
+button {
+        padding: 15px;
+        outline: none;
+        font-size: 15px;
+        border-radius: 10px;
+        width: 100%;
+}
+
+.loading {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+.loading label {
+    font-size: 24px;
+}
+
+button {
+    cursor: pointer;
+    left: 69px;
+    text-decoration: none;
+    background-color: #3C362A;
+    text-align: center;
+    border: #000000;
+    width: 250px;
+    border-radius: 10px;
+    font-size: 15px;
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+button:active {
+    opacity: 0.8;
+}
+button[disabled] {
+    opacity: 0.8;
+}
+
+.clear {
+    background: transparent;
+    border: 1px solid rgb(0, 0, 0);    
+    color: rgb(0, 0, 0);
+}
+.solid {
+    background: rgb(0, 0, 0);
+    color: rgb(249, 250, 250);
+    
+}
+
+.error {
+    color: rgb(255, 0, 0);
+    display: none;
+} 
     </style>
 </head>
-<body>
-    <div class="nome-app">
-        <h1>Budget</h1>
-    </div>
-    <section>
-        <div class="tela-cadastro">
-            <h2>Cadastro</h2>
-            <input type="text" placeholder="Nome" class="nome">
-            <br><br>
-            <input type="email" placeholder="Email" class="email">
-            <br><br>
-            <input type="password" placeholder="Senha" class="senha">
-            <br><br>
-            <a class="button" href="home.html"> cadastre-se </a>
-            <br>
-            <p><a href="tela-login.html">Já possui uma conta?</a></p>
+<body class="centralize">
+    <script src="post/post-registro.js"></script>
+    <form class="form">
+        <div class="form-field">
+            <div><label>Nome</label></div>
+            <input type="name" placeholder="nome"
+                 id="nome"/>
+            <div class="error" id="name-required-error">
+                Email é obrigatório
+            </div>
         </div>
-    </section>    
+        <div class="form-field">
+            <div><label>Email</label></div>
+            <input type="email" placeholder="seu@email.com"
+                onchange="onChangeEmail()" id="email"/>
+            <div class="error" id="email-required-error">
+                Email é obrigatório
+            </div>
+            <div class="error" id="email-invalid-error">
+                Email é inválido
+            </div>
+        </div>
+        <div class="form-field">
+            <div><label>Senha</label></div>
+            <input type="password" placeholder="Senha"
+                id="password" onchange="onChangePassword()"/>
+            <div class="error" id="password-required-error">
+                Senha é obrigatório
+            </div>
+            <div class="error" id="password-min-length-error">
+                Senha deve ter pelo menos 6 caracteres
+            </div>
+        </div>
+        <div class="form-field">
+            <div><label>Confirmar senha</label></div>
+            <input type="password" placeholder="Confirmar senha"
+                id="confirmPassword" onchange="onChangeConfirmPassword()"/>
+            <div class="error" id="password-doesnt-match-error">
+                Senha e Confirmar senha devem ser iguais
+            </div>
+        </div>
+        <div>
+            <button type="button" class="solid" disabled="true" onclick="cadastraUsuario()" id="register-button">
+                Registrar
+            </button>
+        </div>
+        <div>
+            <button type="button" class="clear" onclick="login()">Login</button>
+        </div>
+    </form>
+
+    <script>
+
+
+    function onChangeEmail() {
+    const email = form.email().value;
+    form.emailRequiredError().style.display = email ? "none" : "block";
+
+    form.emailInvalidError().style.display = validateEmail(email) ? "none" : "block";
+
+    toggleRegisterButtonDisable();
+}
+
+function validateEmail(email) {
+    return /\S+@\S+\.\S+/.test(email);
+}
+
+function onChangePassword() {
+    const password = form.password().value;
+    form.passwordRequiredError().style.display = password ? "none" : "block";
+
+    form.passwordMinLengthError().style.display = password.length >= 6 ? "none" : "block";
+
+    validatePasswordsMatch();
+    toggleRegisterButtonDisable();
+}
+
+function onChangeConfirmPassword() {
+    validatePasswordsMatch();
+    toggleRegisterButtonDisable();
+}
+
+function validatePasswordsMatch() {
+    const password = form.password().value;
+    const confirmPassword = form.confirmPassword().value;
+
+    form.confirmPasswordDoesntMatchError().style.display =
+        password == confirmPassword ? "none" : "block";
+}
+
+function toggleRegisterButtonDisable() {
+    form.registerButton().disabled = !isFormValid();
+}
+
+function isFormValid() {
+    const email = form.email().value;
+    if (!email || !validateEmail(email)) {
+        return false;
+    }
+
+    const password = form.password().value;
+    if (!password || password.length < 6) {
+        return false;
+    }
+
+    const confirmPassword = form.confirmPassword().value;
+    if (password != confirmPassword) {
+        return false;
+    }
+
+    return true;
+}
+
+
+const form = {
+    name: () => document.getElementById('nome'),
+    confirmPassword: () => document.getElementById('confirmPassword'),
+    confirmPasswordDoesntMatchError: () => document.getElementById('password-doesnt-match-error'),
+    email: () => document.getElementById('email'),
+    emailInvalidError: () => document.getElementById('email-invalid-error'),
+    emailRequiredError: () => document.getElementById('email-required-error'),
+    password: () => document.getElementById('password'),
+    passwordMinLengthError: () => document.getElementById('password-min-length-error'),
+    passwordRequiredError: () => document.getElementById('password-required-error'),
+    registerButton: () => document.getElementById('register-button')
+}
+
+
+function register1() {
+    
+    window.location.href = "propaganda.html";
+}
+
+function login() {
+    window.location.href = "tela-login.html";
+}
+
+
+
+    </script>
 </body>
 </html>

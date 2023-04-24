@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario</title>
+    <title>Formulário</title>
     <style>
-        .body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+        body {
+            font-family: "Poppins", sans-serif;
             background-color: #F7F3F3;
         }
         .top{
-            width: 1500px;
+            width: 15000px;
             height: 50px;
             background-color: #5FD38F;
             margin-top: -10px; 
@@ -19,19 +20,24 @@
             
             
         }
+
+        .centra{
+            align-items: center;
+        }
+
         .block {
-            width: 500px;
+            width: 480px;
             height: 380px;
             background-color: #F7F3F3;
-            margin-left: 470px;
+            margin-left: 700px;
             margin-top:100px;
-            border-radius: 5px;
+            border-radius: 20px;
             border: 1px solid #ccc;
             box-shadow: 0px 0px 15px  rgba(0, 0, 0, 0.3);
             padding: 10px;
         }
         .budget {position: absolute;
-            left: 700px;
+            left: 900px;
             top: -14px;
         }
         .header{
@@ -45,7 +51,7 @@
         
         .objetivo{
             
-            margin-left: 500px;
+            margin-left: 730px;
             margin-top: -400px; 
             
 
@@ -81,9 +87,9 @@
             border-top: 5px solid #333;
         }
 
-        .btn-continuar {
-            margin-left: 660px;
-            margin-top: 25px;
+        button {
+            margin-left: 890px;
+            margin-top: 35px;
             background-color: #5FD38F;
             border: none;
             border-radius: 20px;
@@ -95,19 +101,10 @@
             transition: background-color 0.3s ease-in-out;
         }
 
-        .btn-continuar:hover {
+        button:hover {
             background-color: #48B777;
         }
 
-        .seta {
-            width: 0;
-            height: 0;
-            border-top: 15px solid transparent;
-            border-bottom: 15px solid transparent;
-            border-right: 15px solid black;
-            margin-top: -498px;
-            margin-left: 2px;
-        }
 
 
 
@@ -118,7 +115,8 @@
 
     </style>
 </head>
-<body>
+<body class="centra">
+    <script src="post/post-formulario.js"></script>
     <div class="top"></div>
     <div class="block"></div>
     <div class="budget">
@@ -131,23 +129,20 @@
                     <option value="" selected>
                         Selecione...
                     </option>
-                    <option value="op1">Opção 2</option>
-                    <option value="op2">Opção 3</option>
-                    <option value="op3">Opção 4</option>
-                    <option value="op4">Opção 5</option>
+                    <option value="op1">Opção 1</option>
+                    <option value="op2">Opção 2</option>
+                    <option value="op3">Opção 3</option>
+                    <option value="op4">Opção 4</option>
                 </select>
 
-            <div class="select-arrow"></div>
-        </form>
-    </div>
-    <div class="header">
+        <div class="select-arrow"></div>
         <h3 style="font-size: 25px;">Qual a sua renda mensal?</h3>
+        <input style="width: 425px; height:50px; font-size: 23px;" type="number" id="salario" placeholder="&nbsp;Digite seu salário...">
+        </form>
         </div>
-        <div class="input">
-        <input style="width: 425px; height:50px; font-size: 23px;" type="text" placeholder="&nbsp;Digite seu salário...">
-        </div>
+
+        <button id="btn-continuar" onclick="updateFormulario()">Continuar</button>
         
-        <button class="btn-continuar">Continuar</button>
 
         <div class="seta"></div>
 </body>
