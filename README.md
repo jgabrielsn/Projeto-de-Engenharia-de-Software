@@ -33,7 +33,7 @@ O Budget traz além de funcionalidades já existentes em outros aplicativos de f
 - RDS
 - Trello
 
-# Quais foram as metodologias de desenvolvimento do projeto?
+# Metodologias utilizadas no desenvolvimento do projeto:
 ### Scrum
 - A equipe realizou iterações semanais com base em metas estabelecidas a cada reunião,<br> 
 realizando além disso revisões do que tinha sido realizado. Entretanto quando necessário<br> 
