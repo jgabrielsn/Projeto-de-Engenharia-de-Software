@@ -6,7 +6,7 @@ const getAll = async () => {
     return users;
 };
 
-const getUser = async (Email) => {
+const getUserByEmail = async (Email) => {
     const query = 'SELECT * FROM users WHERE Email = ?';	
     const [user] = await connection.execute(query, [Email]);
     return user[0];
@@ -22,11 +22,9 @@ const createUser = async (user) => {
     
     const { UserName,  Email} = user;
     
-    const query = 'INSERT INTO users(UserName, created_at, Password, PasswordSalt, Email) VALUES (?, ?, ?, ?, ?)';
-
-    const dateUTC = new Date(Date.now()).toUTCString();
+    const query = 'INSERT INTO users(Email, UserName, Password, PasswordSalt) VALUES (?, ?, ?, ?)';
     
-    const [createdUser] = await connection.execute(query, [UserName, dateUTC, Password, PasswordSalt, Email]);
+    const [createdUser] = await connection.execute(query, [ Email, UserName, Password, PasswordSalt]);
     
     const id = createdUser.insertId;
 
@@ -51,10 +49,54 @@ const updateUser = async (id, user) => {
     return updatedUser;
 };
 
+const updateSaldo = async (id, body) => {
+    const { Saldo } = body;
+    const query = 'UPDATE users SET Saldo = ? WHERE UserID = ?';
+    const [updatedSaldo] = await connection.execute(query, [Saldo, id]);
+    return updatedSaldo;
+};
+
+const updateFormulario = async (id, formulario) => {
+    const { Salario, Objetivo } = formulario;
+    const query = 'UPDATE users SET Salario = ?, Objetivo = ? WHERE UserID = ?';
+    const [updatedFormulario] = await connection.execute(query, [Salario, Objetivo, id]);
+    return updatedFormulario;
+};
+
+const updateMeta = async (id, body) => {
+    const { Meta } = body;
+    const query = 'UPDATE users SET Meta = ? WHERE UserID = ?';
+    const [updatedMeta] = await connection.execute(query, [Meta, id]);
+    return updatedMeta;
+};
+
+const getUserByID = async (id) => {
+    const query = 'SELECT * FROM users WHERE UserID = ?';
+    const [user] = await connection.execute(query, [id]);
+    return user[0];
+};
+
+const updateSenha = async (id, body) => {
+
+    const saltHash = authModel.genPassword(body.Password);
+
+    const PasswordSalt = saltHash.salt;
+    const Password = saltHash.hash;
+
+    const query = 'UPDATE users SET Password = ?, PasswordSalt = ? WHERE UserID = ?';
+    const [updatedSenha] = await connection.execute(query, [Password, PasswordSalt, id]);
+    return updatedSenha;
+};
+
 module.exports = {
     getAll,
-    getUser,
+    getUserByEmail,
     createUser,
     deleteUser,
-    updateUser
+    updateUser,
+    updateSaldo,
+    updateFormulario,
+    updateMeta,
+    getUserByID,
+    updateSenha
 };

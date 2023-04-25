@@ -6,14 +6,19 @@ const getAll = async () => {
 };
 
 const createGasto = async (gasto) => {
-    const { gastoNome, valor, data, categoria } = gasto;
+    const { UserID, gastoNome, valor, data, categoria } = gasto;
 
-    const query = 'INSERT INTO gastos( createTime, gastoNome, valor, data, categoria) VALUES (?, ?, ?, ?, ?)';
-
-    const dateUTC = new Date(Date.now()).toUTCString();
+    const query = 'INSERT INTO gastos( UserID, gastoNome, valor, data, categoria) VALUES (?, ?, ?, ?, ?)';
     
-    const [createdGasto] = await connection.execute(query, [ dateUTC, gastoNome, valor, data, categoria]);
-    return {insertId : createdGasto.insertId};
+    const [createdGasto] = await connection.execute(query, [ UserID, gastoNome, valor, data, categoria]);
+
+    const query2 = 'UPDATE users SET saldo = saldo - ? WHERE UserID = ?';
+    await connection.execute(query2, [valor, UserID]);
+
+    const query3 = 'SELECT saldo FROM users WHERE UserID = ?';
+    const [updatedSaldo] = await connection.execute(query3, [UserID]);
+
+    return {insertId : createdGasto.insertId, updatedSaldo : updatedSaldo[0].saldo};
 };
 
 const deleteGasto = async (codigo) => {
@@ -32,9 +37,23 @@ const updateGasto = async (codigo, gasto) => {
     return updatedGasto;
 };
 
+const getAllGastosByID = async (id) => {
+    const query = 'SELECT * FROM gastos WHERE UserID = ?';
+    const [gasto] = await connection.execute(query, [id]);
+    return gasto;
+};
+
+const getGastoByCodigo = async (codigo) => {
+    const query = 'SELECT * FROM gastos WHERE codigo = ?';
+    const [gasto] = await connection.execute(query, [codigo]);
+    return gasto;
+};
+
 module.exports = {
     getAll,
     createGasto,
     deleteGasto,
-    updateGasto
+    updateGasto,
+    getAllGastosByID,
+    getGastoByCodigo
 };
