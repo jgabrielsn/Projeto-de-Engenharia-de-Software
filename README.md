@@ -19,4 +19,6 @@ Um aplicativo com foco em finanças pessoais, onde temos como objetivo ter uma i
 ## Qual o público alvo? 
 Todos aqueles que estiverem tendo dificuldades em organizar suas finanças pelas diferentes situações possíveis.
 
+## O que trazemos de diferente?
+O Budget traz além de funcionalidades já existentes em outros aplicativos de finanças como selecionar tipo de gastos<br> e recorrência dos mesmo, mas além disso também possuimos a funcionalidade de dicas baseadas no perfil do usuário 
 
