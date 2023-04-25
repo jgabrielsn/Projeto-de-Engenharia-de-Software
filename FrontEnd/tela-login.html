@@ -19,72 +19,195 @@
             transform: translate(-50%,0);
             font-size: 20px;
         }
-        .tela-login{
-            width: 300px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: white;
-            position: absolute;
-            top: 55%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            padding: 100px;
-            border-radius: 15px;
-            color: #5FD38F;
-        }
-        .email{
-            padding: 15px;
-            outline: none;
-            font-size: 15px;
-            border-radius: 10px;
-            width: 100%;
-        }
-        .senha{
-            padding: 15px;
-            outline: none;
-            font-size: 15px;
-            border-radius: 10px;
-            width: 100%;
-        }
-        .button{
-            text-decoration: none;
-            background-color: #3C362A;
-            text-align: center;
-            border: none;
-            padding: 15px;
-            width: 100%;
-            border-radius: 10px;
-            font-size: 15px;
-            color: white;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-        .button:hover{
-            background-color: #32240a ;
-            cursor: pointer;
-        }
-        .a{
-           background-color:#3C362A ; 
-        }
+        .centralize {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 100px;
+    border-radius: 15px;
+    color: #000000;
+}
+
+        
+
+.form-field {
+    margin-bottom: 10px;
+    margin-left: -30px;
+}
+
+input,
+button {
+        padding: 15px;
+        outline: none;
+        font-size: 15px;
+        border-radius: 10px;
+        width: 100%;
+}
+
+.loading {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+.loading label {
+    font-size: 24px;
+}
+
+button {
+    cursor: pointer;
+    left: 69px;
+    text-decoration: none;
+    background-color: #3C362A;
+    text-align: center;
+    border: none;
+    width: 250px;
+    border-radius: 10px;
+    font-size: 15px;
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+button:active {
+    opacity: 0.8;
+}
+button[disabled] {
+    opacity: 0.8;
+}
+
+.clear {
+    background: transparent;
+    border: none;
+    color: rgb(5, 5, 5);
+}
+.solid {
+    background: rgb(3, 3, 3);
+    border: none;
+    color: rgb(255, 255, 255);
+}
+.outline {
+    background: transparent;
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.error {
+    padding: 15px;
+        outline: none;
+        font-size: 15px;
+        border-radius: 10px;
+        width: 100%;
+    background: red;
+    color: rgb(0, 0, 0);
+    display: none;
+} 
     </style>
 </head>
-<body>
-    <div class="nome-app">
-        <h1>Budget</h1>
-    </div>
-    <section>
-        <div class="tela-login">
-            <h2>Login</h2>
-            <input type="text" placeholder="Email" class="email">
-            <br><br>
-            <input type="password" placeholder="Senha" class="senha">
-            <br><br>
-            <a class="button" href="home.html"> Login </a>
-            <br>
-            <p><a href="#" style="color: #040404">Esqueceu a senha?</a></p>
-            <p><a href="tela-cadastro.html" style="color: #050505">Criar nova conta</a></p>
+<body class="centralize">
+    <script src="post/post-login.js"></script>
+    <form class="form">
+        <div class="form-field">
+            <div><label>Email</label></div>
+            <input type="email" name="email" id="email" placeholder="seu@email.com" onchange="onChangeEmail()"/>
+            <div class="error" id="email-required-error">Email é obrigatório</div>
+            <div class="error" id="email-invalid-error">Email é inválido</div>
         </div>
-    </section>    
+        <div class="form-field">
+            <div><label>Senha</label></div>
+            <input type="password" name="password" id="password" placeholder="Senha" onchange="onChangePassword()"/>
+            <div class="error" id="password-required-error">Senha é obrigatória</div>
+        </div>
+        <div>
+        </div>
+        <div>
+            <button type="button" class="solid" id="login-button" disabled="true" onclick="loginUsuario()" >Entrar</button>
+        </div>
+        <div>
+            <button type="button" class="outline" onclick="register()">Registrar</button>
+        </div>
+    </form>
+
+    <script>
+
+function onChangeEmail() {
+    toggleButtonsDisable();
+    toggleEmailErrors();
+}
+
+function onChangePassword() {
+    toggleButtonsDisable();
+    togglePasswordErrors();
+} 
+
+function toggleEmailErrors() {
+    const email = document.getElementById("email").value;
+    if (!email) {
+        document.getElementById("email-required-error").style.display = "block";
+    } else {
+        document.getElementById("email-required-error").style.display = "none";
+    }
+    
+    if (validateEmail(email)) {
+        document.getElementById("email-invalid-error").style.display = "none";
+    } else {
+        document.getElementById("email-invalid-error").style.display = "block";
+    }
+}
+
+function togglePasswordErrors() {
+    const password = document.getElementById("password").value;
+    if (!password) {
+       document.getElementById("password-required-error").style.display = "block";
+    } else {
+       document.getElementById("password-required-error").style.display = "none";
+    }
+}
+
+function toggleButtonsDisable() {
+    const emailValid = isEmailValid();
+
+    const passwordValid = isPasswordValid();
+    document.getElementById("login-button").disabled = !emailValid || !passwordValid;
+}
+
+function isEmailValid() {
+    const email = document.getElementById("email").value;
+    if (!email) {
+        return false;
+    }
+    return validateEmail(email);
+}
+
+function isPasswordValid() {
+    const password = document.getElementById("password").value;
+    if (!password) {
+        return false;
+    }
+    return true;
+}
+
+function validateEmail(email) {
+    return /\S+@\S+\.\S+/.test(email);
+}
+
+
+
+function register() {
+    window.location.href = "tela-cadastro.html";
+}
+
+    </script>
 </body>
 </html>

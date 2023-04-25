@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minhas contas</title>
     <link
       href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
       rel="stylesheet"
@@ -278,7 +279,7 @@
                 </a>
               </li>
               <li class="list">
-                <a href="#" class="nav-link">
+                <a href="addgasto.html" class="nav-link">
                   <i class="bx bx-bar-chart-alt-2 icon"></i>
                   <span class="link">Gerenciar Gastos</span>
                 </a>
@@ -290,7 +291,8 @@
                 </a>
               </li>
               <li class="list">
-                <a href="dicas-financeiras.html" class="nav-link">
+                <script src="get/get-dificuldade.js"></script>
+                <a onclick="showDica()" class="nav-link">
                   <i class="bx bx-message-rounded icon"></i>
                   <span class="link">Dicas financeiras</span>
                 </a>
@@ -304,12 +306,7 @@
             </ul>
   
             <div class="bottom-cotent">
-              <li class="list">
-                <a href="#" class="nav-link">
-                  <i class="bx bx-cog icon"></i>
-                  <span class="link"> Perfil</span>
-                </a>
-              </li>
+              
               <li class="list">
                 <a href="welcome.html" class="nav-link">
                   <i class="bx bx-log-out icon"></i>
@@ -345,16 +342,19 @@
     
     <br>
     <div class="content">
+      
+
         <div class="topico">
           <h3 id="h-desc">Descrição</h3>
           <h3 id="h-valor">Valor</h3>
           <h3 id="h-venc">Vencimento</h3>
         </div>
         <div class="content--add-item">
+          <script src="post/post-conta.js"></script>
             <input type="text" id="input-new-task" placeholder="Digite a descrição">
             <input type="number" id="input-valor" placeholder="Digite valor">
             <input type="date" id="input-vencimento" placeholder="Digite o vencimento">
-            <button onclick="newTask()" id="btn-new-task" title="Clique aqui para adicionar uma nova conta">
+            <button onclick="contasUsuario(); newTask()"  id="btn-new-task" title="Clique aqui para adicionar uma nova conta">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
                 </svg>
@@ -365,16 +365,9 @@
             </ol>
         </div>
     </div>
-    <script>
-      const localStorageKey = 'to-do-list-gn'
+<script>
 
-function validateIfExistsNewTask()
-{
-    let values     = JSON.parse(localStorage.getItem(localStorageKey) || "[]")
-    let inputValue = document.getElementById('input-new-task').value
-    let exists     = values.find(x => x.name == inputValue)
-    return !exists ? false : true
-}
+
 
 function newTask()
 {
@@ -399,56 +392,122 @@ function newTask()
         input3.style.border = '1px solid red'
         alert('Digite o vencimento')
     }
-    else if(validateIfExistsNewTask())
-    {
-        alert('Já existe uma task com essa descrição')
-    }
+   
     else
     {
         // increment to localStorage
-        let values = JSON.parse(localStorage.getItem(localStorageKey) || "[]")
-        values.push({
-            name: input1.value,
-            valor: input2.value,
-            data: input3.value
-        })
-        localStorage.setItem(localStorageKey,JSON.stringify(values))
+        
         showValues()
     }
     input1.value = ''
 }
 
-function showValues()
-{
-    let values = JSON.parse(localStorage.getItem(localStorageKey) || "[]")
+function fazGet(url) {
+  let usuario = JSON.parse(localStorage.getItem("usuario"));
+  let token = usuario.token;
+    let request = new XMLHttpRequest()
+    request.open("GET", url, false)
+    request.setRequestHeader("Authorization", token);
+    request.send()
+    return request.responseText
+}
+
+function showValues() {
+    
+    let usuario = JSON.parse(localStorage.getItem("usuario"));
+    let id = usuario.user.UserID;
+    let values = fazGet("http://budget-env.eba-ik396234.sa-east-1.elasticbeanstalk.com/users/contas/"+id);
+    let listValues = JSON.parse(values)
     let list = document.getElementById('to-do-list')
 
     list.innerHTML = ''
-    for(let i = 0; i < values.length; i++)
+    if (listValues.length > 0) {
+    for(let i = 0; i < listValues.length; i++)
     {
+      const date = new Date(listValues[i]["vencimento"]);
+      const dataFormatada = date.toLocaleDateString(); // ou data.toLocaleString()
+
         list.innerHTML += `<li>
-        <div id="desc-lista">${values[i]['name']}</div>
-        <div id="valor-lista">R$ ${values[i]['valor']}</div>
-        <div id="venc-lista">${values[i]['data']}</div>
-        <button id='btn-ok' onclick='removeItem("${values[i]['name']}")'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/></svg></button></li>`
+        <div id="desc-lista">${listValues[i]["contaNome"]}</div>
+        <div id="valor-lista">R$ ${listValues[i]["valor"]}</div>
+        <div id="venc-lista">${dataFormatada}</div>
+        <button id='btn-ok' onclick='removeItem("${listValues[i]["Codigo"]}", "${listValues[i]["valor"]}" )'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/></svg></button></li>`
 
         //`<li>${values[i]['name']}            
         //  R$${values[i]['valor']}       
         //  ${values[i]['data']}<button id='btn-ok' onclick='removeItem("${values[i]['name']}")'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/></svg></button></li>`
     }
+  }
 }
 
-function removeItem(data)
-{
-    let values = JSON.parse(localStorage.getItem(localStorageKey) || "[]")
-    let index = values.findIndex(x => x.name == data)
-    values.splice(index,1)
-    localStorage.setItem(localStorageKey,JSON.stringify(values))
+function fazPostSaldo(url, body) {
+  let usuario = JSON.parse(localStorage.getItem("usuario"));
+    let token = usuario.token;
+   
+  let request = new XMLHttpRequest();
+  request.open("POST", url, true);
+  request.setRequestHeader("Authorization", token);
+  request.setRequestHeader("Content-type", "application/json");
+
+  request.onload = function () {
+    if (request.status >= 200 && request.status < 300) {
+    } 
+  else {
+      console.error("Erro ao fazer login:", request.responseText);
+      // ou exibir uma mensagem de erro para o usuário
+    }
+  };
+
+  request.send(JSON.stringify(body));
+}
+
+
+function fazGetSaldo(url) {
+    let usuario = JSON.parse(localStorage.getItem("usuario"));
+    let token = usuario.token;
+      
+    let request = new XMLHttpRequest()
+      request.open("GET", url, false)
+      request.setRequestHeader("Authorization", token);
+      request.send()
+      return request.responseText
+  }
+  
+  function updateSaldo(valor) {
+    let usuario = JSON.parse(localStorage.getItem("usuario"));
+    let id = usuario.user.UserID;
+    let email = usuario.user.Email;
+    let values = fazGetSaldo("http://budget-env.eba-ik396234.sa-east-1.elasticbeanstalk.com/users/id/"+id);
+    let listValues = JSON.parse(values)
+    let saldo = listValues["Saldo"]
+    let url2 = "http://budget-env.eba-ik396234.sa-east-1.elasticbeanstalk.com/users/saldo/" + id;
+    saldoFinal = saldo - valor
+
+  body2 = {
+    Saldo: saldoFinal,
+  }
+
+  fazPostSaldo(url2, body2)
+  }
+
+function fazDelete(url) {
+  let usuario = JSON.parse(localStorage.getItem("usuario"));
+  let token = usuario.token;
+  let request = new XMLHttpRequest()
+  request.open("DELETE", url, false)
+  request.setRequestHeader("Authorization", token);
+  request.send()
+  return request.responseText
+}
+
+function removeItem(data, valor) {   
+    let values = fazDelete("http://budget-env.eba-ik396234.sa-east-1.elasticbeanstalk.com/contas/"+data);
+    updateSaldo(valor)
     showValues()
 }
 
 showValues()
-    </script>
+</script>
   </body>
 </html>
 

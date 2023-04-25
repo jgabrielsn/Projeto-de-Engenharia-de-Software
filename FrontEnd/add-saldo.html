@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adicionar saldo</title>
     <link
       href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
       rel="stylesheet"
@@ -182,7 +183,7 @@ nav.open ~ .overlay {
               </a>
             </li>
             <li class="list">
-              <a href="#" class="nav-link">
+              <a href="addgasto.html" class="nav-link">
                 <i class="bx bx-bar-chart-alt-2 icon"></i>
                 <span class="link">Gerenciar Gastos</span>
               </a>
@@ -194,7 +195,8 @@ nav.open ~ .overlay {
               </a>
             </li>
             <li class="list">
-              <a href="dicas-financeiras.html" class="nav-link">
+              <script src="get/get-dificuldade.js"></script>
+              <a onclick="showDica()" class="nav-link">
                 <i class="bx bx-message-rounded icon"></i>
                 <span class="link">Dicas financeiras</span>
               </a>
@@ -208,12 +210,7 @@ nav.open ~ .overlay {
           </ul>
 
           <div class="bottom-cotent">
-            <li class="list">
-              <a href="#" class="nav-link">
-                <i class="bx bx-cog icon"></i>
-                <span class="link"> Perfil</span>
-              </a>
-            </li>
+            
             <li class="list">
               <a href="welcome.html" class="nav-link">
                 <i class="bx bx-log-out icon"></i>
@@ -244,11 +241,13 @@ nav.open ~ .overlay {
     </script>
   
     <div class="add-saldo">
+      <script src="post/post-saldo.js"></script>
+
       <h2>Informe o valor que deseja adicionar</h2>
       <br><br>
-      <input type="number" placeholder="valor" class="valor">
+      <input type="number" placeholder="valor" id="valor" class="valor">
             <br><br>
-      <button class="button">ADICIONAR</button>
+      <button class="button" onclick="updateSaldo()">ADICIONAR</button>
           </div>
 
   </body>
