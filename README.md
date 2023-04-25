@@ -14,7 +14,7 @@
 
 
 ## O que é o Budget?
-Um aplicativo com foco em finanças pessoais, onde temos como objetivo ter uma interface amigável a                                                                           todos os públicos com intuito de organizar seus ganhos e gastos e proporcionar dicas financeiras, baseado em seu perfil
+Um aplicativo com foco em finanças pessoais, onde temos como objetivo ter uma interface amigável a <br> todos os públicos com intuito de organizar seus ganhos e gastos e proporcionar dicas financeiras, baseado em seu perfil
 
 ## Qual o público alvo? 
 Todos aqueles que estiverem tendo dificuldades em organizar suas finanças pelas diferentes situações possíveis.
