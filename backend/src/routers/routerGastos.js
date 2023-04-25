@@ -1,25 +1,27 @@
 const express = require('express');
 const router = express.Router();
+const passport = require('passport');
 
 const gastoController = require('../controllers/gastoController');
 const gastosMiddleware = require('../middlewares/gastosMiddlewares');
 
+
 // lista todos os gastos
-router.get('/gastos', gastoController.getAll);
+router.get('/gastos', passport.authenticate('jwt', {session: false}), gastoController.getAll);
 
 //insere gasto
-router.post('/gastos', gastosMiddleware.validateBody, gastoController.createGasto);
+router.post('/gastos', passport.authenticate('jwt', {session: false}), gastosMiddleware.validateBody, gastoController.createGasto);
 
 //deletar gasto
-router.delete('/gastos/:codigo', gastoController.deleteGasto);
+router.delete('/gastos/:codigo', passport.authenticate('jwt', {session: false}), gastoController.deleteGasto);
 
 //atualizar gasto
-router.put('/gastos/:codigo', gastosMiddleware.validateBody, gastoController.updateGasto);
+router.put('/gastos/:codigo', passport.authenticate('jwt', {session: false}), gastosMiddleware.validateBody, gastoController.updateGasto);
 
 //lista gastos por id
-router.get('/users/gastos/:id', gastoController.getAllGastosByID);
+router.get('/users/gastos/:id', passport.authenticate('jwt', {session: false}), gastoController.getAllGastosByID);
 
 //pegar gasto por codigo
-router.get('/gastos/:codigo', gastosMiddleware.validateCodigo, gastoController.getGastoByCodigo);
+router.get('/gastos/:codigo', passport.authenticate('jwt', {session: false}), gastosMiddleware.validateCodigo, gastoController.getGastoByCodigo);
 
 module.exports = router;
