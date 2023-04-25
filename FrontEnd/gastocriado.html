@@ -16,7 +16,7 @@
             width: 600px;
             height: 200px;
             background-color: #F7F3F3;
-            margin-left: 430px;
+            margin-left: 640px;
             margin-top:-190px;
             border-radius: 20px;
             border: 1px solid #ccc;
@@ -30,7 +30,7 @@
         }
 
         .OK{
-            margin-left: 680px;
+            margin-left: 900px;
             background-color: #5FD38F;
             border: none;
             border-radius: 20px;
@@ -55,7 +55,13 @@
 </head>
 <body>
     <h3 class="msg">Seu gasto foi registrado! Lembre de sempre fazer<br> um bom uso do seu dinheiro</h3>
-    <button class="OK">OK</button>
+    <button class="OK" onclick="redirecionar()">OK</button>
+
+<script>
+    function redirecionar() {
+        window.location.href = "home.html";
+    }
+</script>
     <div class="block"></div>
     
 

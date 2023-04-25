@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
     <link
       href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
       rel="stylesheet"
@@ -21,7 +22,7 @@
 }
 body {
   min-height: 100%;
-  background: #fafbfb;
+  background: #F7F3F3;
 }
 nav {
   position: fixed;
@@ -116,6 +117,7 @@ nav.open ~ .overlay {
 }
 
 .saldo{
+  font-size: 18px;
     width: 250px;
     height: 100px;
     display: flex;
@@ -147,6 +149,126 @@ nav.open ~ .overlay {
     color: #030303;
 }
 
+.container .card {
+    position: relative;
+    width: 230px;
+    left: 450%;
+    top: -50% ;
+    background: linear-gradient(0deg, #ffffff, #ffffff, #ffffff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 230px;
+    border-radius: 4px;
+    text-align: center;
+    overflow: hidden;
+    transform: scale(0);
+    transition: 0.5s;
+}
+
+.container .card:nth-child(1) {
+    animation: zoom 0.4s ease-in-out forwards;
+}
+
+
+
+
+@keyframes zoom {
+    to {
+        transform: scale(1);
+    }
+}
+
+.container .card:hover {
+    margin-top: -10px;
+    box-shadow: 0 15px 35px rgba(187, 173, 173, 0.5);
+}
+
+.container .card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 0, 0, 0.03);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.percent {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 50px #e0d4d4;
+    background: #ffffff;
+    z-index: 1000;
+
+}
+
+.percent .number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.percent .number h2 {
+    color: #53b632;
+    font-weight: 500;
+    font-size: 30px;
+    transition: 0.5s;
+}
+
+.text {
+    position: absolute;
+    color: #777;
+    margin: 10px;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+
+.card:hover .text {
+    color: #000000;
+}
+
+.container svg {
+    position: relative;
+    width: 800px;
+    height: 500px;
+    z-index: 1000;
+}
+
+.container svg circle {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 10;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
+}
+
+svg circle:nth-child(2) {
+    stroke-dasharray: 440;
+    stroke-dashoffset: 440;
+}
+
+.card:nth-child(1) svg circle:nth-child(2) {
+    stroke-dashoffset: calc(440 - (440 * 90) / 100);
+    stroke: #00ff43;
+
+}
+
     </style>
   </head>
   <body>
@@ -171,7 +293,7 @@ nav.open ~ .overlay {
               </a>
             </li>
             <li class="list">
-              <a href="#" class="nav-link">
+              <a href="addgasto.html" class="nav-link">
                 <i class="bx bx-bar-chart-alt-2 icon"></i>
                 <span class="link">Gerenciar Gastos</span>
               </a>
@@ -183,7 +305,8 @@ nav.open ~ .overlay {
               </a>
             </li>
             <li class="list">
-              <a href="dicas-financeiras.html" class="nav-link">
+              <script src="get/get-dificuldade.js"></script>
+              <a onclick="showDica()" class="nav-link">
                 <i class="bx bx-message-rounded icon"></i>
                 <span class="link">Dicas financeiras</span>
               </a>
@@ -197,17 +320,18 @@ nav.open ~ .overlay {
           </ul>
 
           <div class="bottom-cotent">
+            
             <li class="list">
-              <a href="#" class="nav-link">
-                <i class="bx bx-cog icon"></i>
-                <span class="link"> Perfil</span>
-              </a>
-            </li>
-            <li class="list">
-              <a href="welcome.html" class="nav-link">
+              <a href="welcome.html" class="nav-link" id="logout-link">
                 <i class="bx bx-log-out icon"></i>
                 <span class="link">Sair</span>
               </a>
+              
+              <script>
+                document.getElementById('logout-link').addEventListener('click', function() {
+                  localStorage.removeItem('usuario');
+                });
+              </script>
             </li>
           </div>
         </div>
@@ -232,66 +356,110 @@ nav.open ~ .overlay {
       });
     </script>
     
-    <div id="curve_chart" style="width: 800px; height: 500px; transform: translate(33%,50%);"></div>
+    <div id="curve_chart" style="width: 800px; height: 500px; transform: translate(33%,70%);"></div>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Nome', 'valor'],
-          ['xx',  54.3],
-          ['xa',  97.2],
-          ['xs',  127],
-          ['xy',  143.39]
-        ]);
-
-        var options = {
-          title: 'Gastos',
-          curveType: 'function',
-          legend: { position: 'bottom' }
-        };
-
-        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
-        chart.draw(data, options);
-      }
+    <script type="text/javascript" src="get/get-gastosGL.js">
+      
     </script>
 
-      <div id="piechart" style="width: 500px; height: 500px; transform: translate(230%,-50%);"></div>
+      <div id="piechart" style="width: 510px; height: 500px; transform: translate(230%,-30%);"></div>
      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-     <script type="text/javascript">
-       google.charts.load('current', {'packages':['corechart']});
-       google.charts.setOnLoadCallback(drawChart);
- 
-       function drawChart() {
- 
-         var data = google.visualization.arrayToDataTable([
-           ['Tipo', 'valor'],
-           ['Transporte',     500],
-           ['Alimentação',      1500],
-           ['Lazer',  500],
-           ['Contas', 2000]
-         ]);
- 
-         var options = {
-           title: 'Divisão dos gastos'
-         };
- 
-         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
- 
-         chart.draw(data, options);
-       }
+     <script type="text/javascript" src="get/get-gastosGP.js">
+      
      </script>
       
       
       <a class="adicionar-saldo" href="add-saldo.html"><h1> +</h1> </a>
 
-     <div class="saldo">
-      saldo em reais:
-      <h2>Saldo total</h2>
+      <div class="saldo">
+        <script src="get/get-saldo.js"></script>
+        saldo em reais:
+        <span id="saldo"></span>
+        <script>
+          document.getElementById("saldo").textContent = showSaldo();
+        </script>
+        <div class="container">
+            <div class="card">
+              <div class="box">
+                <div class="percent">
+                  <svg>
+                    <circle cx="70" cy="70" r="70"></circle>
+                    <circle id="circle1" cx="0" cy="0" r="0"></circle>
+                  </svg>
+                  <div class="number">
+                    <h2><b id="percent1">0</b><span>%</span></h2>
+                  </div>
+                </div>
+                <h2 class="text">meta de gastos</h2>
+              </div>
+            </div>
+           
+           
+          </div>
+          
+          <script>
+            let percent = 0
+            let time
+          
+            function animate(id1, id2, start, end, duration) {
+            if (start === end) return;
+            const range = end - start;
+                          
+            let current = start;
+            const increment = end > start ? 0.01 : -0.01;
+            const stepTime = Math.abs(Math.floor(duration / range));
+            const obj1 = document.getElementById(id1);
+            const obj2 = document.getElementById(id2);
+            const timer = setInterval(function () {
+              current += increment;
+              obj1.innerHTML = current.toFixed(2); // limita o número de casas decimais a 2
+              obj2.style.strokeDashoffset = `${440 - (440 * current) / 100}`
+              if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
+                clearInterval(timer);
+              }
+            }, stepTime);
+          }
+                      
+
+            function fazGet(url) {
+            let usuario = JSON.parse(localStorage.getItem("usuario"));
+            let token = usuario.token;
+            let request = new XMLHttpRequest()
+            request.open("GET", url, false)
+            request.setRequestHeader("Authorization", token);
+            request.send()
+            return request.responseText
+            }
+            
+            function showMeta() {
+              let usuario = JSON.parse(localStorage.getItem("usuario"));
+              let id = usuario.user.UserID;
+              let values = fazGet("http://budget-env.eba-ik396234.sa-east-1.elasticbeanstalk.com/users/id/"+id);
+              let listValues = JSON.parse(values)
+              let meta = parseFloat(listValues["Meta"])
+              return meta
+            }
+
+            function sumValues() {
+              let usuario = JSON.parse(localStorage.getItem("usuario"));
+              let id = usuario.user.UserID;
+              let values = fazGet("http://budget-env.eba-ik396234.sa-east-1.elasticbeanstalk.com/users/gastos/"+id);
+              let list = JSON.parse(values)
+              let sum = 0;
+              for(let i = 0; i < list.length; i++) {
+                sum += parseFloat(list[i].valor);
+              }
+              return sum;
+            }
+
+            let meta = showMeta()
+            let valorGastos = sumValues()
+            let porc = (valorGastos/meta)*100
+
+            animate("percent1", "circle1", 0, porc, 20)
+          </script>
       </div>
+      
       
 
   </body>
