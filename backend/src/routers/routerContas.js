@@ -25,5 +25,4 @@ router.get('/users/contas/:id', passport.authenticate('jwt', {session: false}), 
 router.get('/contas/:codigo', passport.authenticate('jwt', {session: false}), contasMiddleware.validateCodigo, contaController.getContaByCodigo);
 
 
-
 module.exports = router;
