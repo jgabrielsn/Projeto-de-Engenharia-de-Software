@@ -6,6 +6,9 @@
 
 
 
-### Grupo: Caio Buarque de Gusmão, Diego Henrique Vilaça Calixto, 
-### José Gabriel de Santos Nascimento e Júlia Arnaud de Melo Fragoso
+### Grupo: 
+* Caio Buarque de Gusmão 
+* Diego Henrique Vilaça Calixto
+* José Gabriel de Santos Nascimento
+* Júlia Arnaud de Melo Fragoso
 
