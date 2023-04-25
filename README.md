@@ -31,10 +31,15 @@ O Budget traz além de funcionalidades já existentes em outros aplicativos de f
 - AWS
 - Elastic Beanstalk
 - RDS
+- Trello
 
 # Quais foram as metodologias de desenvolvimento do projeto?
 ### Scrum
 - A equipe realizou iterações semanais com base em metas estabelecidas a cada reunião,<br> realizando além disso revisões do que tinha sido realizado. Entretanto quando necessário devido a complexidade da demanda ou por problemas externos as iterações aumentavam para duas semanas.
 
+### Kanban
+- A equipe aplicou essa metodologia através do Trello, separando as responsabilidades de<br> cada um, e como afetava outras demandas para o avanço do projeto. A separação ficou em 5 etapas: Backlog, a fazer, em andamento, fase de teste, concluído.
 
+### FDD
+- A equipe desenvolveu uma estratégia de através dos ciclos de iteração serem entregue funcionalidades em ordem do funcionamento real do aplicativo, tanto para o front quanto para o back, para a integração ser progressiva.
 
