@@ -21,30 +21,30 @@ router.get('/private', passport.authenticate('jwt', {session: false}), (req, res
 });
 
 //retorna todos usuários
-router.get('/users', usersController.getAll);
+router.get('/users', passport.authenticate('jwt', {session: false}), usersController.getAll);
 
 //deletar usuário
-router.delete('/users/:id', usersController.deleteUser);
+router.delete('/users/:id', passport.authenticate('jwt', {session: false}), usersController.deleteUser);
 
 //atualizar nome de usuário
-router.put('/users/:id', userMiddleware.validateBody, usersController.updateUser);
+router.put('/users/:id', passport.authenticate('jwt', {session: false}), userMiddleware.validateBody, usersController.updateUser);
 
 //retornar usuário por email
-router.get('/users/email/:email', userMiddleware.validateEmail, usersController.getUserByEmail);
+router.get('/users/email/:email', passport.authenticate('jwt', {session: false}), userMiddleware.validateEmail, usersController.getUserByEmail);
 
 //retornar usuário por id
-router.get('/users/id/:id', userMiddleware.verifyID, usersController.getUserByID);
+router.get('/users/id/:id', passport.authenticate('jwt', {session: false}), userMiddleware.verifyID, usersController.getUserByID);
 
-//atualizar saldo do usuário
-router.post('/users/saldo/:id', userMiddleware.verifyID, usersController.updateSaldo);
+//inserir saldo do usuário
+router.post('/users/saldo/:id', passport.authenticate('jwt', {session: false}), userMiddleware.verifyID, usersController.updateSaldo);
 
-//atualizar formulário do usuário
-router.post('/users/formulario/:id', userMiddleware.verifyID, usersController.updateFormulario);
+//inserir formulário do usuário
+router.post('/users/formulario/:id', passport.authenticate('jwt', {session: false}), userMiddleware.verifyID, usersController.updateFormulario);
 
-//atualizar meta do usuário
-router.post('/users/meta/:id', userMiddleware.verifyID, usersController.updateMeta);
+//inserir meta do usuário
+router.post('/users/meta/:id', passport.authenticate('jwt', {session: false}), userMiddleware.verifyID, usersController.updateMeta);
 
 //atualizar senha do usuário
-router.post('/users/senha/:id', userMiddleware.verifyID, usersController.updateSenha);
+router.put('/users/senha/:id', passport.authenticate('jwt', {session: false}), userMiddleware.verifyID, usersController.updateSenha);
 
 module.exports = router;

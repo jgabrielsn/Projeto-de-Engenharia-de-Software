@@ -63,10 +63,10 @@ const updateFormulario = async (id, formulario) => {
     return updatedFormulario;
 };
 
-const updateMeta = async (id, Meta) => {
-    const { meta } = Meta;
-    const query = 'UPDATE users SET meta = ? WHERE UserID = ?';
-    const [updatedMeta] = await connection.execute(query, [meta, id]);
+const updateMeta = async (id, body) => {
+    const { Meta } = body;
+    const query = 'UPDATE users SET Meta = ? WHERE UserID = ?';
+    const [updatedMeta] = await connection.execute(query, [Meta, id]);
     return updatedMeta;
 };
 
