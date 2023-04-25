@@ -22,3 +22,12 @@ Todos aqueles que estiverem tendo dificuldades em organizar suas finanças pelas
 ## O que trazemos de diferente?
 O Budget traz além de funcionalidades já existentes em outros aplicativos de finanças como selecionar tipo de gastos<br> e recorrência dos mesmo, mas além disso também possuimos a funcionalidade de dicas baseadas no perfil do usuário 
 
+# Ferramentas:
+- Javascript
+- HTML 
+- CSS
+- Docker 
+- Jest 
+- AWS 
+- Elastic Beanstalk 
+- RDS  
