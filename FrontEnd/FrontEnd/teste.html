@@ -1,0 +1,192 @@
+
+<head>
+    <meta charset="utf-8">
+    <title>circulo progressivo</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+    <style>
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  min-height: 100%;
+  background: #f4eded;
+}
+
+
+
+.container .card {
+    position: relative;
+    width: 250px;
+    left: 80%;
+    background: linear-gradient(0deg, #ffffff, #ffffff, #ffffff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    border-radius: 4px;
+    text-align: center;
+    overflow: hidden;
+    transform: scale(0);
+    transition: 0.5s;
+}
+
+.container .card:nth-child(1) {
+    animation: zoom 0.4s ease-in-out forwards;
+}
+
+
+
+
+@keyframes zoom {
+    to {
+        transform: scale(1);
+    }
+}
+
+.container .card:hover {
+    margin-top: -10px;
+    box-shadow: 0 15px 35px rgba(187, 173, 173, 0.5);
+}
+
+.container .card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 0, 0, 0.03);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.percent {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 50px #e0d4d4;
+    background: #ffffff;
+    z-index: 1000;
+
+}
+
+.percent .number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.percent .number h2 {
+    color: #777;
+    font-weight: 500;
+    font-size: 30px;
+    transition: 0.5s;
+}
+
+.text {
+    position: absolute;
+    color: #777;
+    margin: 10px;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+
+.card:hover .text {
+    color: #000000;
+}
+
+svg {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    z-index: 1000;
+}
+
+svg circle {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 10;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
+}
+
+svg circle:nth-child(2) {
+    stroke-dasharray: 440;
+    stroke-dashoffset: 440;
+}
+
+.card:nth-child(1) svg circle:nth-child(2) {
+    stroke-dashoffset: calc(440 - (440 * 90) / 100);
+    stroke: #00ff43;
+
+}
+
+
+
+
+    </style>
+  </head>
+  <body>
+  
+  <div class="container">
+    <div class="card">
+      <div class="box">
+        <div class="percent">
+          <svg>
+            <circle cx="70" cy="70" r="70"></circle>
+            <circle id="circle1" cx="70" cy="70" r="70"></circle>
+          </svg>
+          <div class="number">
+            <h2><b id="percent1">0</b><span>%</span></h2>
+          </div>
+        </div>
+        <h2 class="text">meta utilizada</h2>
+      </div>
+    </div>
+   
+   
+  </div>
+  
+  <script>
+    let percent = 0
+    let time
+  
+    function animate(id1, id2, start, end, duration) {
+      if (start === end) return;
+      const range = end - start;
+      let current = start;
+      const increment = end > start ? 1 : -1;
+      const stepTime = Math.abs(Math.floor(duration / range));
+      const obj1 = document.getElementById(id1);
+      const obj2 = document.getElementById(id2);
+      const timer = setInterval(function () {
+        current += increment;
+        obj1.innerHTML = current;
+        obj2.style.strokeDashoffset = `${440 - (440 * current) / 100}`
+        if (current === end) {
+          clearInterval(timer);
+        }
+      }, stepTime);
+    }
+  
+    animate("percent1", "circle1", 0, 90, 5000)
+  </script>
+  </body>
+  </html>

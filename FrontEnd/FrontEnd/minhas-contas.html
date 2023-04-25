@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minhas contas</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    
+    />
+    <style>
+      /* Google Fonts - Poppins */
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        min-height: 100%;
+        background: #fafbfb;
+        }
+
+        nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 70px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        background: #5FD38F;
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav .logo {
+        display: flex;
+        align-items: center;
+        margin: 0 24px;
+        }
+        .logo .menu-icon {
+        color: #333;
+        font-size: 24px;
+        margin-right: 14px;
+        cursor: pointer;
+        }
+
+        .logo .gerenciar-name{
+        color: #040404;
+        font-size: 22px;
+        font-weight: 500;
+        left: 5rem;
+        }
+
+        .logo .logo-name {
+        color: #040404;
+        font-size: 22px;
+        font-weight: 500;
+        }
+        nav .sidebar {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        height: 100%;
+        width: 260px;
+        padding: 20px 0;
+        background-color: #5FD38F;
+        box-shadow: 0 5px 1px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s ease;
+        }
+        nav.open .sidebar {
+        left: 0;
+        }
+        .sidebar .sidebar-content {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 30px 16px;
+        }
+        .sidebar-content .list {
+        list-style: none;
+        }
+        .list .nav-link {
+        display: flex;
+        align-items: center;
+        margin: 8px 0;
+        padding: 14px 12px;
+        border-radius: 8px;
+        text-decoration: none;
+        }
+        .lists .nav-link:hover {
+        background-color: hsl(145, 97%, 13%);
+        }
+        .nav-link .icon {
+        margin-right: 14px;
+        font-size: 20px;
+        color: #020202;
+        }
+        .nav-link .link {
+        font-size: 16px;
+        color: #050505;
+        font-weight: 400;
+        }
+        .lists .nav-link:hover .icon,
+        .lists .nav-link:hover .link {
+        color: #fff;
+        }
+        .overlay {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        height: 1000vh;
+        width: 200%;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.4s ease;
+        }
+        nav.open ~ .overlay {
+        opacity: 1;
+        left: 260px;
+        pointer-events: auto;
+        }
+
+
+
+.content{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.topico{
+    display: flex;
+    align-items: center;
+    gap: 17rem;
+    flex-wrap: wrap;
+    color: rgb(7, 7, 7);
+  }
+
+.content--add-item{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+#input-new-task, #input-valor,
+#input-vencimento,
+#btn-new-task{
+    
+    font-size: 0.8rem;
+    outline: none;
+    padding: 0.7rem;
+}
+
+#input-new-task, #input-valor,
+#input-vencimento{
+    width: 20.5rem;
+    border-radius: 1rem;
+}
+
+#h-desc{
+  padding-right: 0rem;
+}
+
+#h-valor{
+    padding-right: -1rem;
+}
+
+#h-venc{
+  padding-left: -3rem;
+}
+
+#btn-new-task{
+    background-color: rgb(9, 9, 9);
+    color: rgb(250, 250, 250);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: .4s;
+}
+
+#btn-new-task:hover{
+    background-color: #2b2929;
+}
+
+#to-do-list{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0;
+    
+}
+
+#to-do-list li{
+    list-style-type: none;
+    line-height: 1.5; /* Aumenta o espaçamento em 50% */
+    font-size: 1.4rem;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#desc-lista{
+  padding-left: 0.5rem;
+}
+
+#valor-lista{
+  padding-left: 6rem;
+}
+
+#venc-lista{
+  padding-left: 6rem;
+}
+
+#to-do-list li:hover{
+    transition: .4s;
+    border-radius: 1rem;
+    padding-left: 1rem;
+}
+
+#btn-ok{
+    border: none;
+    background-color: black;
+    color: white;
+    padding: .4rem .8rem;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: .4s;
+}
+
+#btn-ok:hover{
+    background-color: #2b2929;
+}
+
+
+    </style>
+  </head>
+  <body>
+
+    
+
+    <nav>
+        <div class="logo">
+          <i class="bx bx-menu menu-icon"></i>
+          <span class="logo-name">Budget</span>
+        </div>
+        <div class="sidebar">
+          <div class="logo">
+            <i class="bx bx-menu menu-icon"></i>
+            <span class="logo-name">Budget</span>
+          </div>
+  
+          <div class="sidebar-content">
+            <ul class="lists">
+              <li class="list">
+                <a href="home.html" class="nav-link">
+                  <i class="bx bx-home-alt icon"></i>
+                  <span class="link">Dashboard</span>
+                </a>
+              </li>
+              <li class="list">
+                <a href="addgasto.html" class="nav-link">
+                  <i class="bx bx-bar-chart-alt-2 icon"></i>
+                  <span class="link">Gerenciar Gastos</span>
+                </a>
+              </li>
+              <li class="list">
+                <a href="minhas-contas.html" class="nav-link">
+                  <i class="bx bx-bar-chart-alt-2 icon"></i>
+                  <span class="link">Gerenciar contas</span>
+                </a>
+              </li>
+              <li class="list">
+                <script src="get/get-dificuldade.js"></script>
+                <a onclick="showDica()" class="nav-link">
+                  <i class="bx bx-message-rounded icon"></i>
+                  <span class="link">Dicas financeiras</span>
+                </a>
+              </li>
+              <!--<li class="list">
+                <a href="#" class="nav-link">
+                  <i class="bx bx-pie-chart-alt-2 icon"></i>
+                  <span class="link">Análises</span>
+                </a>
+              </li>-->
+            </ul>
+  
+            <div class="bottom-cotent">
+              
+              <li class="list">
+                <a href="welcome.html" class="nav-link">
+                  <i class="bx bx-log-out icon"></i>
+                  <span class="link">Sair</span>
+                </a>
+              </li>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+    <section class="overlay"></section>
+
+    <script>
+      const navBar = document.querySelector("nav"),
+        menuBtns = document.querySelectorAll(".menu-icon"),
+        overlay = document.querySelector(".overlay");
+
+      menuBtns.forEach((menuBtn) => {
+        menuBtn.addEventListener("click", () => {
+          navBar.classList.toggle("open");
+        });
+      });
+
+      overlay.addEventListener("click", () => {
+        navBar.classList.remove("open");
+      });
+    </script>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <br>
+    <div class="content">
+      
+
+        <div class="topico">
+          <h3 id="h-desc">Descrição</h3>
+          <h3 id="h-valor">Valor</h3>
+          <h3 id="h-venc">Vencimento</h3>
+        </div>
+        <div class="content--add-item">
+          <script src="post/post-conta.js"></script>
+            <input type="text" id="input-new-task" placeholder="Digite a descrição">
+            <input type="number" id="input-valor" placeholder="Digite valor">
+            <input type="date" id="input-vencimento" placeholder="Digite o vencimento">
+            <button onclick="contasUsuario(); newTask()"  id="btn-new-task" title="Clique aqui para adicionar uma nova conta">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                </svg>
+            </button>
+        </div>
+        <div class="content--body">
+            <ol id="to-do-list">
+            </ol>
+        </div>
+    </div>
+<script>
+
+
+
+function newTask()
+{
+    let input1 = document.getElementById('input-new-task')
+    let input2 = document.getElementById('input-valor')
+    let input3 = document.getElementById('input-vencimento')
+    input1.style.border, input2.style.border, input3.style.border = ''
+
+    // validation
+    if(!input1.value)
+    {
+        input1.style.border = '1px solid red'
+        alert('Digite a descrição')
+    }
+    if(!input2.value)
+    {
+        input2.style.border = '1px solid red'
+        alert('Digite o valor')
+    }
+    if(!input3.value)
+    {
+        input3.style.border = '1px solid red'
+        alert('Digite o vencimento')
+    }
+   
+    else
+    {
+        // increment to localStorage
+        
+        showValues()
+    }
+    input1.value = ''
+}
+
+function fazGet(url) {
+  let usuario = JSON.parse(localStorage.getItem("usuario"));
+  let token = usuario.token;
+    let request = new XMLHttpRequest()
+    request.open("GET", url, false)
+    request.setRequestHeader("Authorization", token);
+    request.send()
+    return request.responseText
+}
+
+function showValues() {
+    
+    let usuario = JSON.parse(localStorage.getItem("usuario"));
+    let id = usuario.user.UserID;
+    let values = fazGet("http://budget-env.eba-ik396234.sa-east-1.elasticbeanstalk.com/users/contas/"+id);
+    let listValues = JSON.parse(values)
+    let list = document.getElementById('to-do-list')
+
+    list.innerHTML = ''
+    if (listValues.length > 0) {
+    for(let i = 0; i < listValues.length; i++)
+    {
+      const date = new Date(listValues[i]["vencimento"]);
+      const dataFormatada = date.toLocaleDateString(); // ou data.toLocaleString()
+
+        list.innerHTML += `<li>
+        <div id="desc-lista">${listValues[i]["contaNome"]}</div>
+        <div id="valor-lista">R$ ${listValues[i]["valor"]}</div>
+        <div id="venc-lista">${dataFormatada}</div>
+        <button id='btn-ok' onclick='removeItem("${listValues[i]["Codigo"]}", "${listValues[i]["valor"]}" )'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/></svg></button></li>`
+
+        //`<li>${values[i]['name']}            
+        //  R$${values[i]['valor']}       
+        //  ${values[i]['data']}<button id='btn-ok' onclick='removeItem("${values[i]['name']}")'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/></svg></button></li>`
+    }
+  }
+}
+
+function fazPostSaldo(url, body) {
+  let usuario = JSON.parse(localStorage.getItem("usuario"));
+    let token = usuario.token;
+   
+  let request = new XMLHttpRequest();
+  request.open("POST", url, true);
+  request.setRequestHeader("Authorization", token);
+  request.setRequestHeader("Content-type", "application/json");
+
+  request.onload = function () {
+    if (request.status >= 200 && request.status < 300) {
+    } 
+  else {
+      console.error("Erro ao fazer login:", request.responseText);
+      // ou exibir uma mensagem de erro para o usuário
+    }
+  };
+
+  request.send(JSON.stringify(body));
+}
+
+
+function fazGetSaldo(url) {
+    let usuario = JSON.parse(localStorage.getItem("usuario"));
+    let token = usuario.token;
+      
+    let request = new XMLHttpRequest()
+      request.open("GET", url, false)
+      request.setRequestHeader("Authorization", token);
+      request.send()
+      return request.responseText
+  }
+  
+  function updateSaldo(valor) {
+    let usuario = JSON.parse(localStorage.getItem("usuario"));
+    let id = usuario.user.UserID;
+    let email = usuario.user.Email;
+    let values = fazGetSaldo("http://budget-env.eba-ik396234.sa-east-1.elasticbeanstalk.com/users/id/"+id);
+    let listValues = JSON.parse(values)
+    let saldo = listValues["Saldo"]
+    let url2 = "http://budget-env.eba-ik396234.sa-east-1.elasticbeanstalk.com/users/saldo/" + id;
+    saldoFinal = saldo - valor
+
+  body2 = {
+    Saldo: saldoFinal,
+  }
+
+  fazPostSaldo(url2, body2)
+  }
+
+function fazDelete(url) {
+  let usuario = JSON.parse(localStorage.getItem("usuario"));
+  let token = usuario.token;
+  let request = new XMLHttpRequest()
+  request.open("DELETE", url, false)
+  request.setRequestHeader("Authorization", token);
+  request.send()
+  return request.responseText
+}
+
+function removeItem(data, valor) {   
+    let values = fazDelete("http://budget-env.eba-ik396234.sa-east-1.elasticbeanstalk.com/contas/"+data);
+    updateSaldo(valor)
+    showValues()
+}
+
+showValues()
+</script>
+  </body>
+</html>
+

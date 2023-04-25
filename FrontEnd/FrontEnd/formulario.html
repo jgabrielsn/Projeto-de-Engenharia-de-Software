@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: #F7F3F3;
+        }
+        .top{
+            width: 15000px;
+            height: 50px;
+            background-color: #5FD38F;
+            margin-top: -10px; 
+            margin-left: -10px;
+            
+            
+        }
+
+        .centra{
+            align-items: center;
+        }
+
+        .block {
+            width: 480px;
+            height: 490px;
+            background-color: #F7F3F3;
+            margin-left: 700px;
+            margin-top:100px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0px 0px 15px  rgba(0, 0, 0, 0.3);
+            padding: 10px;
+        }
+        .budget {position: absolute;
+            left: 900px;
+            top: -14px;
+        }
+        .header{
+            margin-left: 500px;
+            margin-top: 55px;
+        }
+        .input{
+            margin-left: 500px;
+            margin-top: 0px;
+            }
+        
+        .objetivo{
+            
+            margin-left: 730px;
+            margin-top: -510px; 
+            
+
+        }
+        select {
+            appearance: none;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            font-size: 16px;
+            color: #333;
+            width: 440px;
+        }
+
+        select:hover, select:focus {
+            border-color: #666;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;}
+
+
+        .select-arrow {
+            position: absolute;
+            margin-top:-23px;
+            margin-left: 410px;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid #333;
+        }
+
+        button {
+            margin-left: 890px;
+            margin-top: 35px;
+            background-color: #5FD38F;
+            border: none;
+            border-radius: 20px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #48B777;
+        }
+
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body class="centra">
+    <script src="post/post-formulario.js"></script>
+    <div class="top"></div>
+    <div class="block"></div>
+    <div class="budget">
+        <p style="color: white; font-size: 22px; font-weight: bold; ">Budget</p>
+    </div>
+    <div class="objetivo">
+        <h3 style="font-size: 25px;">Qual a sua dificuldade financeira?</h3>
+        <form action="">
+                <select name="Selecione..." id="iest" style="font-size: 23px;">
+                    <option value="" selected>
+                        Selecione...
+                    </option>
+                    <option value="op1">Tenho dificuldade em guardar dinheiro no geral, sobra menos que 10% do salário</option>
+                    <option value="op2">Não sei como usar o dinheiro, guardo 60% do meu salário</option>
+                    <option value="op3">Tenho problema em gastos com comidas na hora de sair</option>
+                    <option value="op4">Tenho problemas em gastos no lazer</option>
+                    <option value="op5">As contas da minha casa estão muito altas</option>
+                    
+                </select>
+
+        <div class="select-arrow"></div>
+        <h3 style="font-size: 25px;">Qual a sua meta de gastos mensal?</h3>
+        <input style="width: 425px; height:50px; font-size: 23px;" type="string" id="meta" placeholder="&nbsp;Digite sua meta...">
+
+        <h3 style="font-size: 25px;">Qual a sua renda mensal?</h3>
+        <input style="width: 425px; height:50px; font-size: 23px;" type="number" id="salario" placeholder="&nbsp;Digite seu salário...">
+        </form>
+        </div>
+
+        <button id="btn-continuar" onclick="updateFormulario()">Continuar</button>
+        
+
+        <div class="seta"></div>
+</body>
+</html>
