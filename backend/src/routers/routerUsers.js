@@ -41,11 +41,10 @@ router.post('/users/saldo/:id', userMiddleware.verifyID, usersController.updateS
 //atualizar formulário do usuário
 router.post('/users/formulario/:id', userMiddleware.verifyID, usersController.updateFormulario);
 
-//definir meta do usuário
-router.post('/users/meta/:id', userMiddleware.verifyID, usersController.updateMeta);
+//definir/atualizar meta do usuário
+router.put('/users/meta/:id', userMiddleware.verifyID, usersController.updateMeta);
 
 //atualizar senha do usuário
 router.post('/users/senha/:id', userMiddleware.verifyID, usersController.updateSenha);
-
 
 module.exports = router;
