@@ -1,5 +1,6 @@
-<center>## Projeto-de-Engenharia-de-Software
+<center>
+## Projeto-de-Engenharia-de-Software
 # Budget - Finanças Pessoais
-  <center>
+<center>
 **Grupo: Caio Buarque de Gusmão, Diego Henrique Vilaça Calixto, José Gabriel de Santos Nascimento e Júlia Arnaud de Melo Fragoso**
 
