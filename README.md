@@ -45,6 +45,6 @@ cada um, e como afetava outras demandas para o avanço do projeto. A separação
 5 etapas: Backlog, a fazer, em andamento, fase de teste, concluído.
 
 ### FDD
-- A equipe desenvolveu uma estratégia de através dos ciclos de iteração serem entregue funcionalidades<br>
+- A equipe desenvolveu uma estratégia de através dos ciclos de iteração serem entregues funcionalidades<br>
 em ordem do funcionamento real do aplicativo, tanto para o front quanto para o back, para a integração ser progressiva.
 
