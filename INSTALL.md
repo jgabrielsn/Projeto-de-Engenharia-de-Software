@@ -64,3 +64,4 @@ npm start
     ```jsx
     FrontEnd\welcome.html
     ```
+   Ou, pode instalar a extensão Live Server, com ela ja funcionando, clique com o botão direito no arquivo do FrontEnd, welcome.html, e clicar na opção "Open with Live Server".
