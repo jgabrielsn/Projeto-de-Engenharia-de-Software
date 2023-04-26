@@ -11,7 +11,9 @@
 * Diego Henrique Vilaça Calixto
 * José Gabriel de Santos Nascimento
 * Júlia Arnaud de Melo Fragoso
-
+### Notion:
+[Notion](https://www.notion.so/Apresenta-o-Final-26-04-378396024a744e6b9087cfd6cf447fff)
+https://www.notion.so/Apresenta-o-Final-26-04-378396024a744e6b9087cfd6cf447fff
 
 ## O que é o Budget?
 Um aplicativo com foco em finanças pessoais, onde temos como objetivo ter uma interface amigável a todos<br> os públicos com intuito de organizar seus ganhos e gastos e proporcionar dicas financeiras, baseado em seu perfil
