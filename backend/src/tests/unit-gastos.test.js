@@ -1,14 +1,16 @@
+/* eslint-disable no-undef */
+
 const gastoModel = require('../models/gastoModel');
 
 describe ('Testando as funções de gastos', () => {
 
     it('É possível criar um gasto', async () => {
         const newGasto = {
-        UserID: 66,
-        gastoNome: 'Sushi',
-        valor: 90,
-        data: '2023-07-01',
-        categoria: 'Alimentação',
+            UserID: 66,
+            gastoNome: 'Sushi',
+            valor: 90,
+            data: '2023-07-01',
+            categoria: 'Alimentação',
         };
         const createdGasto = await gastoModel.createGasto(newGasto);
         expect(createdGasto.insertId).toBeDefined();
