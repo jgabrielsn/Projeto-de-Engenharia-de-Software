@@ -14,7 +14,7 @@
 ### Notion:
 [Projeto de Engenharia de Software - Budget](https://bramble-toad-834.notion.site/Projeto-Engenharia-de-Sotfware-3619b83c66044910abbc09098e459b55)
 
-### Link para acessar o aplicativo
+### Link para acessar o aplicativo:
 [Budget](https://jgabrielsn.github.io/Projeto-de-Engenharia-de-Software/FrontEnd/welcome.html)
 
 ## O que é o Budget?
@@ -48,7 +48,7 @@ devido a complexidade da demanda ou por problemas externos as iterações aument
 cada um, e como afetava outras demandas para o avanço do projeto. A separação ficou em<br> 
 5 etapas: Backlog, a fazer, em andamento, fase de teste, concluído.
 
-### FDD
+### FDD(Feature-Driven Development)
 - A equipe desenvolveu uma estratégia de através dos ciclos de iteração serem entregues funcionalidades<br>
 em ordem do funcionamento real do aplicativo, tanto para o front quanto para o back, para a integração ser progressiva.
 
