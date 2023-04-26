@@ -33,9 +33,11 @@ O Budget traz além de funcionalidades já existentes em outros aplicativos de f
 - Docker
 - Jest
 - AWS
-- Elastic Beanstalk
+- Render
+- Elastic Beanstalk (Descontinuado) 
 - RDS
 - Trello
+- Notion
 
 # Metodologias utilizadas no desenvolvimento do projeto:
 ### Scrum
