@@ -12,7 +12,7 @@
 * José Gabriel de Santos Nascimento
 * Júlia Arnaud de Melo Fragoso
 ### Notion:
-[Notion](https://www.notion.so/Apresenta-o-Final-26-04-378396024a744e6b9087cfd6cf447fff)
+[](https://www.notion.so/Apresenta-o-Final-26-04-378396024a744e6b9087cfd6cf447fff)
 https://www.notion.so/Apresenta-o-Final-26-04-378396024a744e6b9087cfd6cf447fff
 
 ## O que é o Budget?
