@@ -49,7 +49,5 @@ cada um, e como afetava outras demandas para o avanço do projeto. A separação
 em ordem do funcionamento real do aplicativo, tanto para o front quanto para o back, para a integração ser progressiva.
 
 # Modelo conceitual do banco de dados do Budget
-
-<center>
 <img src="https://user-images.githubusercontent.com/112400309/234442116-dd790c3e-8642-4ad5-876c-3252f8039fe2.png" alt="Modelo Conceitual" width="70%">
-</center>
+
