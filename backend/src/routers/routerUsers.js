@@ -16,9 +16,6 @@ router.post('/register', userMiddleware.validateBody,
     userMiddleware.validateName,
     usersController.register);
 
-router.get('/private', passport.authenticate('jwt', {session: false}), (req, res) => {
-    res.status(200).json({success: true, msg: 'You are authorized to view this content'});
-});
 
 //retorna todos usuários
 router.get('/users', passport.authenticate('jwt', {session: false}), usersController.getAll);
@@ -45,6 +42,6 @@ router.post('/users/formulario/:id', passport.authenticate('jwt', {session: fals
 router.post('/users/meta/:id', passport.authenticate('jwt', {session: false}), userMiddleware.verifyID, usersController.updateMeta);
 
 //atualizar senha do usuário
-router.put('/users/senha/:id', passport.authenticate('jwt', {session: false}), userMiddleware.verifyID, usersController.updateSenha);
+router.post('/users/senha/:id', passport.authenticate('jwt', {session: false}), userMiddleware.verifyID, usersController.updateSenha);
 
 module.exports = router;
