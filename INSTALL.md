@@ -39,7 +39,6 @@ Prerequisitos:
     MYSQL_USER=admin
     MYSQL_PASSWORD=projetoes
     MYSQL_DATABASE=Budget
-    MYSQL_PORT= 3066
     ```
     
 6. Gerar chaves públicas e privadas (comandos no terminal)
