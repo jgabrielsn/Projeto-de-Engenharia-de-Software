@@ -17,6 +17,9 @@
 ### Link para acessar o aplicativo:
 [Budget](https://jgabrielsn.github.io/Projeto-de-Engenharia-de-Software/FrontEnd/welcome.html)
 
+### Link para os tutoriais
+[Tutorial](https://www.youtube.com/playlist?list=PLrRUgas-IgkB8N9DEmD8A_3CkK0-Dn9wE)
+
 ## O que é o Budget?
 Um aplicativo com foco em finanças pessoais, onde temos como objetivo ter uma interface amigável a todos<br> os públicos com intuito de organizar seus ganhos e gastos e proporcionar dicas financeiras, baseado em seu perfil
 
