@@ -49,6 +49,10 @@ devido a complexidade da demanda ou por problemas externos as iterações aument
 cada um, e como afetava outras demandas para o avanço do projeto. A separação ficou em<br> 
 5 etapas: Backlog, a fazer, em andamento, fase de teste, concluído.
 
+### Feature-Driven Development (FDD)
+- A equipe desenvolveu funcionalidades progressivas com base na ordem de utilização do aplicativo,<br>
+onde era entregue a cada demanda uma funcionalidade diferente e independente no software, tanto no<br>
+back quanto no front-end, após isso progredindo com funções dependentes das desenvolvidas.
 
 # Modelo conceitual do banco de dados do Budget:
 <img src="https://user-images.githubusercontent.com/112400309/234442116-dd790c3e-8642-4ad5-876c-3252f8039fe2.png" alt="Modelo Conceitual" width="70%">
