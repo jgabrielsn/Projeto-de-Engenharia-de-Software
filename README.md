@@ -14,6 +14,9 @@
 ### Notion:
 [Projeto de Engenharia de Software - Budget](https://bramble-toad-834.notion.site/Projeto-Engenharia-de-Sotfware-3619b83c66044910abbc09098e459b55)
 
+### Link para acessar o aplicativo
+[Budget](https://jgabrielsn.github.io/Projeto-de-Engenharia-de-Software/FrontEnd/welcome.html)
+
 ## O que é o Budget?
 Um aplicativo com foco em finanças pessoais, onde temos como objetivo ter uma interface amigável a todos<br> os públicos com intuito de organizar seus ganhos e gastos e proporcionar dicas financeiras, baseado em seu perfil
 
