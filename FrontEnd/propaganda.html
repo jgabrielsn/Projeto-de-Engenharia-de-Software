@@ -10,79 +10,83 @@
         body{
             font-family: "Poppins", sans-serif;
             background-color: #F7F3F3;
-        
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
         .info{
-            font-size: 15px;
-            position: absolute;
-            top: 59%;
-            left: 50%;
-            transform: translate(-67%, -50%);
-            padding: 10px;
+        font-size: 15px;
+        padding: 10px;
+        left: 100px;
+        margin-top: 40px;
+    }
 
+    .top{
+        height: 50px;
+        background-color: #5FD38F;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+    .button{
+        text-decoration: none;
+        margin-left: 285px;
+    }
+    .button{
+        color: #fff;
+        background-color: #5FD38F;
+        top: 50px;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 10px 30px;
+        transition: background-color 0.3s ease-in-out;
+    }
+    .button:hover {
+        background-color: #48B777;
+    }
+
+    .block{
+        width: 750px;
+        height: 670px;
+        background-color: #F7F3F3;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-shadow: 0px 0px 15px  rgba(0, 0, 0, 0.3);
+        padding: 10px;
         
+    }
+    .budget {
+        position: absolute;
+        left: calc(50% - 36px);
+        top: -14px;
+        color: white;
+        font-size: 22px;
+        font-weight: bold;
+    }
+    .image {
+        margin-top: -30px;
+        margin-left: 0px;
+        display: flex;
+        justify-content: center;
+    }
+</style>
 
-        }
-
-        .top{
-            height: 50px;
-            background-color: #5FD38F;
-            margin-top: -10px; 
-            margin-left: -10px;
-            margin-right:-10px ;
-            
-            
-        }
-        .button{
-            text-decoration: none;
-        }
-        .button{
-            color: #fff;
-            position: absolute;
-            top: 88%;
-            left:46.5%;
-            background-color: #5FD38F;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-            padding: 10px 30px;
-            transition: background-color 0.3s ease-in-out;
-        }
-        .button:hover {
-            background-color: #48B777;
-        }
-    
-        .block{
-            width: 750px;
-            height: 670px;
-            background-color: #F7F3F3;
-            margin-left: 560px;
-            margin-top:150px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            box-shadow: 0px 0px 15px  rgba(0, 0, 0, 0.3);
-            padding: 10px;
-            
-            
-        }
-        .budget {
-            
-            position: absolute;
-            left: 900px;
-            top: -14px;
-
-        }
-        .image {
-            margin-left: 560px;
-            margin-top: -700px;
-        }
     </style>
     
 </head>
 <body>
+    <div class="top"></div>
+
+    <div class="block">
+    <div class="image">
+        <img width="773px" src="img/dinheiro.jpg" alt="Dinheiros">
+    </div>    
     <div class="info">
         <p style="color: #23A161; font-size: 23px;">O que temos a oferecer?</p>
     
@@ -92,25 +96,24 @@
         <p style="color: #23A161 ; font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;Possui alguma dúvida sobre o que fazer com seus gasto?<br> &nbsp;&nbsp;&nbsp;&nbsp;O Budget lhe dará dicas de como lidar com esses problemas<br>&nbsp;&nbsp;&nbsp;&nbsp;e estratégias que você pode seguir.</p>
         <h2>- Personalize seus gastos frequentes</h2>
         <p style="color: #23A161; font-weight: bold">&nbsp;&nbsp;&nbsp;&nbsp;Caso tenha alguma gasto frequente todos mês não se preocupe!<br>&nbsp;&nbsp;&nbsp;&nbsp;Budget possui uma funcionalidade de lhe alertar sobre esse gasto.</p>
-    </div>
+        <a href="formulario.html"><button class="button">COMECE</button></a>
 
+    </div>
+    </div>
 
      <section>
 
-        <a href="formulario.html"><button class="button">COMECE</button></a>
         
      </section>   
     
     <div class="top"></div>
     
-    <div class="block"></div>
+    </div>
 
     <div class="budget">
         <p style="color: white; font-size: 22px; font-weight: bold; ">Budget</p>
     </div>
-    <div class="image">
-        <img width="773px" src="img/dinheiro.jpg" alt="Dinheiros">
-    </div>
+    
     
 
 </body>
