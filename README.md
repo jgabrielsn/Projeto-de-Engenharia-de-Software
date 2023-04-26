@@ -34,7 +34,6 @@ O Budget traz além de funcionalidades já existentes em outros aplicativos de f
 - Jest
 - AWS
 - Render
-- Elastic Beanstalk (Descontinuado) 
 - RDS
 - Trello
 - Notion
