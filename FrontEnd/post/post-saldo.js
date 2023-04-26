@@ -25,10 +25,10 @@ request.setRequestHeader("Content-type", "application/json");
       let usuario = JSON.parse(localStorage.getItem("usuario"));
       let email = usuario.user.Email;
       let id = usuario.user.UserID;
-      let values = fazGet("http://budget-env.eba-ik396234.sa-east-1.elasticbeanstalk.com/users/id/"+id);
+      let values = fazGet("https://budget-hwck.onrender.com/users/id/"+id);
     let listValues = JSON.parse(values)
     let saldo = parseFloat(listValues["Saldo"])
-      let url2 = "http://budget-env.eba-ik396234.sa-east-1.elasticbeanstalk.com/users/saldo/" + id;
+      let url2 = "https://budget-hwck.onrender.com/users/saldo/" + id;
       let valor = parseFloat(document.getElementById("valor").value)
       if (saldo === null){
         let saldoFinal = 0 + valor

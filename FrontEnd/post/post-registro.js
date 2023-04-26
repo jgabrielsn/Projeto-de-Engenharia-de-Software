@@ -20,7 +20,7 @@ function fazPost(url, body) {
   
   function cadastraUsuario() {
     event.preventDefault();
-    let url = "http://budget-env.eba-ik396234.sa-east-1.elasticbeanstalk.com/register";
+    let url = "https://budget-hwck.onrender.com/register";
     let nome = document.getElementById("nome").value;
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;

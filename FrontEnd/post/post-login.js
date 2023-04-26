@@ -23,7 +23,7 @@ function fazPostLogin(url, body) {
   
   function loginUsuario() {
     event.preventDefault();
-    let url = "http://budget-env.eba-ik396234.sa-east-1.elasticbeanstalk.com/login";
+    let url = "https://budget-hwck.onrender.com/login";
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
   

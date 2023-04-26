@@ -22,7 +22,7 @@ function fazPostConta(url, body) {
   
   function contasUsuario() {
     event.preventDefault();
-    let url = "http://budget-env.eba-ik396234.sa-east-1.elasticbeanstalk.com/contas";
+    let url = "https://budget-hwck.onrender.com/contas";
     let usuario = JSON.parse(localStorage.getItem("usuario"));
 
     let id = usuario.user.UserID;

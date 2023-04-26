@@ -74,9 +74,9 @@ function fazPostMeta(url, body) {
     let usuario = JSON.parse(localStorage.getItem("usuario"));
     let id = usuario.user.UserID;
     let saldo = usuario.user.Saldo
-    let url = "http://budget-env.eba-ik396234.sa-east-1.elasticbeanstalk.com/users/formulario/" + id;
-    let url2 = "http://budget-env.eba-ik396234.sa-east-1.elasticbeanstalk.com/users/saldo/" + id;
-    let url3 = "http://budget-env.eba-ik396234.sa-east-1.elasticbeanstalk.com/users/meta/" + id
+    let url = "https://budget-hwck.onrender.com/users/formulario/" + id;
+    let url2 = "https://budget-hwck.onrender.com/users/saldo/" + id;
+    let url3 = "https://budget-hwck.onrender.com/users/meta/" + id
     let metaa = document.getElementById("meta").value;
   
     const selectElement = document.getElementById("iest");

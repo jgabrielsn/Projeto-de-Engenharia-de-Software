@@ -24,7 +24,7 @@ request.setRequestHeader("Content-type", "application/json");
   
   function gastosUsuario() {
     event.preventDefault();
-    let url = "http://budget-env.eba-ik396234.sa-east-1.elasticbeanstalk.com/gastos";
+    let url = "https://budget-hwck.onrender.com/gastos";
     let usuario = JSON.parse(localStorage.getItem("usuario"));
     const selectElement = document.getElementById("iest");
     const valorSelecionado = selectElement.options[selectElement.selectedIndex].value;

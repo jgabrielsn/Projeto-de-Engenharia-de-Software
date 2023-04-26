@@ -434,7 +434,7 @@ svg circle:nth-child(2) {
             function showMeta() {
               let usuario = JSON.parse(localStorage.getItem("usuario"));
               let id = usuario.user.UserID;
-              let values = fazGet("http://budget-env.eba-ik396234.sa-east-1.elasticbeanstalk.com/users/id/"+id);
+              let values = fazGet("https://budget-hwck.onrender.com/users/id/"+id);
               let listValues = JSON.parse(values)
               let meta = parseFloat(listValues["Meta"])
               return meta
@@ -443,7 +443,7 @@ svg circle:nth-child(2) {
             function sumValues() {
               let usuario = JSON.parse(localStorage.getItem("usuario"));
               let id = usuario.user.UserID;
-              let values = fazGet("http://budget-env.eba-ik396234.sa-east-1.elasticbeanstalk.com/users/gastos/"+id);
+              let values = fazGet("https://budget-hwck.onrender.com/users/gastos/"+id);
               let list = JSON.parse(values)
               let sum = 0;
               for(let i = 0; i < list.length; i++) {

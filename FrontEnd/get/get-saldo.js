@@ -11,7 +11,7 @@ function fazGet(url) {
   function showSaldo() {
     let usuario = JSON.parse(localStorage.getItem("usuario"));
     let id = usuario.user.UserID;
-    let values = fazGet("http://budget-env.eba-ik396234.sa-east-1.elasticbeanstalk.com/users/id/"+id);
+    let values = fazGet("https://budget-hwck.onrender.com/users/id/"+id);
     let listValues = JSON.parse(values)
     let saldo = listValues["Saldo"]
     return saldo

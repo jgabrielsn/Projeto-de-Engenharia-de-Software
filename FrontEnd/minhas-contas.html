@@ -416,7 +416,7 @@ function showValues() {
     
     let usuario = JSON.parse(localStorage.getItem("usuario"));
     let id = usuario.user.UserID;
-    let values = fazGet("http://budget-env.eba-ik396234.sa-east-1.elasticbeanstalk.com/users/contas/"+id);
+    let values = fazGet("https://budget-hwck.onrender.com/users/contas/"+id);
     let listValues = JSON.parse(values)
     let list = document.getElementById('to-do-list')
 
@@ -477,10 +477,10 @@ function fazGetSaldo(url) {
     let usuario = JSON.parse(localStorage.getItem("usuario"));
     let id = usuario.user.UserID;
     let email = usuario.user.Email;
-    let values = fazGetSaldo("http://budget-env.eba-ik396234.sa-east-1.elasticbeanstalk.com/users/id/"+id);
+    let values = fazGetSaldo("https://budget-hwck.onrender.com/users/id/"+id);
     let listValues = JSON.parse(values)
     let saldo = listValues["Saldo"]
-    let url2 = "http://budget-env.eba-ik396234.sa-east-1.elasticbeanstalk.com/users/saldo/" + id;
+    let url2 = "https://budget-hwck.onrender.com/users/saldo/" + id;
     saldoFinal = saldo - valor
 
   body2 = {
@@ -501,7 +501,7 @@ function fazDelete(url) {
 }
 
 function removeItem(data, valor) {   
-    let values = fazDelete("http://budget-env.eba-ik396234.sa-east-1.elasticbeanstalk.com/contas/"+data);
+    let values = fazDelete("https://budget-hwck.onrender.com/contas/"+data);
     updateSaldo(valor)
     showValues()
 }
